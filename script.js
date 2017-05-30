@@ -1,15 +1,13 @@
 $(document).ready(function () {
     initButtonsAction();
-    if (location.pathname.split("/").slice(-1)[0] == "form.php") {
-        initJobChange();
-        initButtonsAction();
-        initAddChildButtons();
-        initAddRadioButtonEvent();
-        initDateChecker();
-        initDatepicker();
-        clearFiles();
-        checkRequired();
-    }
+    initJobChange();
+    initButtonsAction();
+    initAddChildButtons();
+    initAddRadioButtonEvent();
+    initDateChecker();
+    initDatepicker();
+    clearFiles();
+    checkRequired();
 });
 
 function checkDate() {
@@ -188,13 +186,7 @@ function initJobChange() {
         }
     });
 }
-/*
-function logOutTequila() {
-    var win = window.open('https://tequila.epfl.ch/logout', '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=10000, top=10000, width=100, height=100, visible=none', '');
-    win.close();
-    //Seems not working yet
-}
-*/
+
 function showOnFormReturn() {
     var selectedFormation = $("#jb option:selected")[0].value;
     showPolyAndInfoDivs(selectedFormation);
