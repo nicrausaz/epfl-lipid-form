@@ -3,9 +3,9 @@
     <h2>{{ question }}</h2>
     <el-checkbox-group v-model="answers">
       <el-checkbox v-for="(option, key) in options" :label="option.label"></el-checkbox>
-      <el-checkbox label="Other" v-on:change="isOther = !isOther"></el-checkbox>
+      <el-checkbox label="Other" v-on:change="hasOther = !hasOther"></el-checkbox>
     </el-checkbox-group>
-    <el-input v-if="isOther" v-model="otherFieldVal" placeholder="Please specify"></el-input>
+    <el-input v-if="hasOther" v-model="otherFieldVal" placeholder="Please specify" v-on:change="emitAnswers"></el-input>
   </div>
 </template>
 
@@ -23,19 +23,18 @@ export default {
         { label: 'EPFL Courses' },
         { label: 'EPFL website' }
       ],
-      isOther: false,
+      hasOther: false,
       otherFieldVal: '',
       answers: []
     }
   },
   methods: {
     emitAnswers () {
-      if (this.isOther) {
+      if (this.hasOther) {
+        this.$emit('q1', this.answers, this.otherFieldVal)
+      } else {
         this.$emit('q1', this.answers)
-        this.$emit('q1', this.otherFieldVal)
       }
-      this.$emit('q1', this.answers)
-      console.log(this.answers)
     }
   }
 }

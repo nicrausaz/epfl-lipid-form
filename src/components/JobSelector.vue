@@ -17,10 +17,10 @@ export default {
   data () {
     return {
       jobs: [
-        { name: 'Master', selected: false },
-        { name: 'Internship', selected: false },
-        { name: 'Phd', selected: false },
-        { name: 'PostDoc', selected: false }
+        { name: 'Master' },
+        { name: 'Internship' },
+        { name: 'Phd' },
+        { name: 'PostDoc' }
       ],
       selectedJob: ''
     }

@@ -2,7 +2,7 @@
   <div id="MainForm">
     <h1>EPFL-LIPID</h1>
     <JobSelector @job="setJob"></JobSelector>
-    <q1 v-if="isMaster"></q1>
+    <q1 @q1="setQ1"></q1>
     <q2></q2>
     <q3></q3>
     <q4></q4>
@@ -22,26 +22,38 @@ export default {
   name: 'MainForm',
   data () {
     return {
-      selectedJob: ''
+      formData: {
+        selectedJob: '',
+        q1: {
+          choices: [],
+          textOther: ''
+        }
+      }
     }
   },
   methods: {
     setJob (job) {
-      this.selectedJob = job
+      this.formData.selectedJob = job
+    },
+    setQ1 (answers, text) {
+      this.formData.q1.choices = answers
+      if (text) {
+        this.formData.q1.textOther = text
+      }
     }
   },
   computed: {
     isMaster () {
-      return this.selectedJob === 'Master'
+      return this.formData.selectedJob === 'Master'
     },
     isInternship () {
-      return this.selectedJob === 'Intership'
+      return this.formData.selectedJob === 'Intership'
     },
     isPhd () {
-      return this.selectedJob === 'Phd'
+      return this.formData.selectedJob === 'Phd'
     },
     isPostDoc () {
-      return this.selectedJob === 'PostDoc'
+      return this.formData.selectedJob === 'PostDoc'
     }
   },
   components: {
