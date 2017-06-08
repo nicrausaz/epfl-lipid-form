@@ -1,4 +1,4 @@
-# testelement
+# EPFL-LIPID-FORM
 
 > A Vue.js project
 
