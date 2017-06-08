@@ -1,0 +1,16 @@
+{
+    "projects": [
+        {
+            "name": "PHP",
+            "responsibleMail": ""
+        },
+        {
+            "name": "VUEJS",
+            "responsibleMail": ""
+        },
+        {
+            "name": "YOLOSWAG",
+            "responsibleMail": ""
+        }
+    ]
+}

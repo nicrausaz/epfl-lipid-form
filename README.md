@@ -1,15 +1,21 @@
-# EPFL-LIPID Postulation Service
-## Main features
-- [ ] Dynamic form according to choice
-- [ ] Reply to applicant
-- [ ] Mail to responsibles according to applicant interest in different topics
-- [ ] Form result in LIPID share accessible to responsibles
+# testelement
 
-## Form contents
-4 choices:
-* Semestre / Masters Project
-* Internship
-* Phd.
-* Post Doc.
+> A Vue.js project
 
-### Dynamic content according to choice
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
