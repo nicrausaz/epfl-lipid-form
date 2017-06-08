@@ -1,0 +1,19 @@
+{
+    "projects": [
+        {
+            "name": "PHP",
+            "responsibleName": "Nicolas Crausaz",
+            "responsibleMail": "nicolas.crausaz@epfl.ch"
+        },
+        {
+            "name": "VUEJS",
+            "responsibleName": "Nicolas Crausaz",
+            "responsibleMail": "nicolas.crausaz@epfl.ch"
+        },
+        {
+            "name": "YOLOSWAG",
+            "responsibleName": "Nicolas Crausaz",
+            "responsibleMail": "nicolas.crausaz@epfl.ch"
+        }
+    ]
+}

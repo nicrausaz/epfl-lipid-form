@@ -1,6 +1,6 @@
 <template>
   <div id="q1" v-on:change="emitAnswers">
-    <h1>{{ question }}</h1>
+    <h2>{{ question }}</h2>
     <el-checkbox-group v-model="answers">
       <el-checkbox v-for="(option, key) in options" :label="option.label"></el-checkbox>
       <el-checkbox label="Other" v-on:change="isOther = !isOther"></el-checkbox>

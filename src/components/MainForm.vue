@@ -4,6 +4,8 @@
     <JobSelector></JobSelector>
     <q1></q1>
     <q2></q2>
+    <q3></q3>
+    <q4></q4>
   </div>
 </template>
 
@@ -11,38 +13,18 @@
 import JobSelector from './JobSelector'
 import q1 from './q1'
 import q2 from './q2'
+import q3 from './q3'
+import q4 from './q4'
 
 export default {
   name: 'MainForm',
+
   components: {
     JobSelector,
     q1,
-    q2
-  },
-  data () {
-    return {
-      jobs: [
-        { name: 'Master' },
-        { name: 'Internship' },
-        { name: 'Phd' },
-        { name: 'PostDoc' }
-      ],
-      form: {
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
-      }
-    }
-  },
-  methods: {
-    submit () {
-      console.log(this.form)
-    }
+    q2,
+    q3,
+    q4
   }
 }
 </script>

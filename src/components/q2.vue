@@ -1,6 +1,6 @@
 <template>
   <div id="q2">
-    <h1>{{ question }}</h1>
+    <h2>{{ question }}</h2>
     <el-input type="textarea" :rows="2" placeholder="Please type" v-model="answer" v-on:change="isValid">
     </el-input>
   </div>
