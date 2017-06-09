@@ -2,11 +2,10 @@
   <div id="q5">
     <h2>{{ question }}</h2>
     <h3>{{ description }}</h3>
-  
-    Energy:<el-rate v-model="ratings.ratingEnergy" :colors="['#F79999', '#F7BA2A', '#FF9900']"></el-rate>
-    Confort:<el-rate v-model="ratings.ratingComfort" :colors="['#F79999', '#F7BA2A', '#FF9900']"></el-rate>
-    Perception:<el-rate v-model="ratings.ratingPerception" :colors="['#F79999', '#F7BA2A', '#FF9900']"></el-rate>
-    Health:<el-rate v-model="ratings.ratingHealth" :colors="['#F79999', '#F7BA2A', '#FF9900']"></el-rate>
+    Energy:<el-rate v-model="ratings.ratingEnergy" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
+    Confort:<el-rate v-model="ratings.ratingComfort" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
+    Perception:<el-rate v-model="ratings.ratingPerception" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
+    Health:<el-rate v-model="ratings.ratingHealth" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
   </div>
 </template>
 
@@ -24,6 +23,11 @@ export default {
         ratingPerception: 0,
         ratingHealth: 0
       }
+    }
+  },
+  methods: {
+    emitStars () {
+      this.$emit('q5', this.ratings)
     }
   }
 }

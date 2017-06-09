@@ -11,22 +11,19 @@ export default {
   name: 'q2',
   data () {
     return {
-      question: 'What is it about the lab that makes you interested in?',
+      question: 'What is it about the lab that makes you interested in? (max 150 words)',
       answer: ''
     }
   },
   methods: {
     isValid () {
-      if (this.answer.split(' ').length >= 150) {
-        // INVALID
+      if (this.answer.split(' ').length <= 150) {
+        // emit if valid
+        this.$emit('q2', this.answer)
       } else {
-        // VALID
+        alert('TOO MUCH WORDS')
       }
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
