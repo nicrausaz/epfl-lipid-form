@@ -2,12 +2,21 @@
   <div id="MainForm">
     <h1>EPFL-LIPID</h1>
     <JobSelector @job="setJob"></JobSelector>
-    <q1 @q1="setQ1"></q1>
-    <q2 @q2="setQ2"></q2>
-    <q3 @q3="setQ3"></q3>
-    <q4></q4>
-    <q5 @q5="setQ5"></q5>
-    <q6 @q6="setQ6"></q6>
+
+      <div v-if="isMaster || isInternship" >
+        <q1 @q1="setQ1"></q1>
+        <q2 @q2="setQ2"></q2>
+        <q3 @q3="setQ3"></q3>
+        <q4></q4>
+        <q5 @q5="setQ5"></q5>
+        <q6 @q6="setQ6"></q6>
+        <q7 @q7="setQ7"></q7>
+        <q8 @q8="setQ8"></q8>
+      </div>
+      <div v-else>
+        EMPTY
+      </div>
+
     <pre>
       {{formData}}
     </pre>
@@ -22,6 +31,8 @@ import q3 from './q3'
 import q4 from './q4'
 import q5 from './q5'
 import q6 from './q6'
+import q7 from './q7'
+import q8 from './q8'
 
 export default {
   name: 'MainForm',
@@ -47,7 +58,14 @@ export default {
         q5: {
           ratings: []
         },
-        q6: { }
+        q6: {
+          interest: '',
+          text: ''
+        },
+        q7: {
+          personalInfos: []
+        },
+        q8: { }
       }
     }
   },
@@ -75,14 +93,22 @@ export default {
     setQ5 (ratings) {
       this.formData.q5.ratings = ratings
     },
-    setQ6 () {}
+    setQ6 (interest, text) {
+      this.formData.q6.interest = interest
+      this.formData.q6.text = text
+    },
+    setQ7 (infos) {
+      this.formData.q7.personalInfos = infos
+    },
+    setQ8 () { },
+    setQ9 () { }
   },
   computed: {
     isMaster () {
       return this.formData.selectedJob === 'Master'
     },
     isInternship () {
-      return this.formData.selectedJob === 'Intership'
+      return this.formData.selectedJob === 'Internship'
     },
     isPhd () {
       return this.formData.selectedJob === 'Phd'
@@ -98,7 +124,9 @@ export default {
     q3,
     q4,
     q5,
-    q6
+    q6,
+    q7,
+    q8
   }
 }
 </script>
