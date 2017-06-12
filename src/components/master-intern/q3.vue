@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import projectList from '../assets/projectList.json'
+import projectList from '../../assets/projectList.json'
 
 export default {
   name: 'q3',

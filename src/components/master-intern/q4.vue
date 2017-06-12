@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import researchList from '../assets/researchList.json'
+import researchList from '../../assets/researchList.json'
 
 export default {
   name: 'q4',

@@ -1,11 +1,16 @@
 <template>
   <div id="q1" v-on:change="emitAnswers">
+
     <h2>{{ question }}</h2>
-    <el-checkbox-group v-model="answers">
+
+    <el-checkbox-group v-model="answers" id="checkboxGroup">
       <el-checkbox v-for="option in options" :label="option.label" :key="option"></el-checkbox>
       <el-checkbox label="Other" v-on:change="hasOther = !hasOther"></el-checkbox>
     </el-checkbox-group>
-    <el-input v-if="hasOther" v-model="otherFieldVal" placeholder="Please specify" v-on:change="emitAnswers"></el-input>
+    <el-row>
+      <el-col :span="12"><el-input v-if="hasOther" v-model="otherFieldVal" placeholder="Please specify" v-on:change="emitAnswers"></el-input></el-col>
+    </el-row>
+    
   </div>
 </template>
 
@@ -40,6 +45,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+#checkboxGroup {
+  padding-bottom: 10px;
+}
 </style>

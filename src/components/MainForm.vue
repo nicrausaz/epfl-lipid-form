@@ -1,22 +1,40 @@
 <template>
   <div id="MainForm">
-    <h1>EPFL-LIPID</h1>
-    <JobSelector @job="setJob"></JobSelector>
-
-      <div v-if="isMaster || isInternship" >
-        <q1 @q1="setQ1"></q1>
-        <q2 @q2="setQ2"></q2>
-        <q3 @q3="setQ3"></q3>
-        <q4></q4>
-        <q5 @q5="setQ5"></q5>
-        <q6 @q6="setQ6"></q6>
-        <q7 @q7="setQ7"></q7>
-        <q8 @q8="setQ8"></q8>
+    <el-row>
+        <el-col :span="24"><JobSelector @job="setJob"></JobSelector></el-col>
+    </el-row>
+    <div v-if="isMaster || isInternship" >
+      <el-row>
+          <el-col :span="24"><q1 @q1="setQ1"></q1></el-col>
+      </el-row>
+      <el-row>
+          <el-col :span="24"><q2 @q2="setQ2"></q2></el-col>
+      </el-row>
+      <el-row>
+          <el-col :span="24"><q3 @q3="setQ3"></q3></el-col>
+      </el-row>
+      <el-row>
+          <el-col :span="24"><q4></q4></el-col>
+      </el-row>
+      <el-row>
+          <el-col :span="24"><q5 @q5="setQ5"></q5></el-col>
+      </el-row>
+      <el-row>
+          <el-col :span="24"><q6 @q6="setQ6"></q6></q5></el-col>
+      </el-row>
+      <el-row>
+          <el-col :span="24"><q7 @q7="setQ7"></q7></el-col>
+      </el-row>
+      <el-row>
+          <el-col :span="24"><q8 @q8="setQ8"></q8></q5></el-col>
+      </el-row>
+    </div>
+      <div v-if="isPhd || isPostDoc">
+        
       </div>
       <div v-else>
-        EMPTY
+        <h1>Please select</h1>
       </div>
-
     <pre>
       {{formData}}
     </pre>
@@ -25,14 +43,14 @@
 
 <script>
 import JobSelector from './JobSelector'
-import q1 from './q1'
-import q2 from './q2'
-import q3 from './q3'
-import q4 from './q4'
-import q5 from './q5'
-import q6 from './q6'
-import q7 from './q7'
-import q8 from './q8'
+import q1 from './master-intern/q1'
+import q2 from './master-intern/q2'
+import q3 from './master-intern/q3'
+import q4 from './master-intern/q4'
+import q5 from './master-intern/q5'
+import q6 from './master-intern/q6'
+import q7 from './master-intern/q7'
+import q8 from './master-intern/q8'
 
 export default {
   name: 'MainForm',
@@ -135,6 +153,5 @@ export default {
 #MainForm {
   max-width: 1250px;
   margin: auto;
-  background-color: #f9fafc;
 }
 </style>
