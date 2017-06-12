@@ -1,6 +1,6 @@
 # EPFL-LIPID-FORM
 
-> A Vue.js project
+> A postulation service for EPFL-LIPID
 
 ## Build Setup
 

@@ -2,7 +2,6 @@
   <div id="q3">
     <h2>{{ question }}</h2>
     <el-switch v-model="showList" on-text="Yes" off-text="No" @change="emitAnswers"></el-switch>
-  
     <el-select v-if="showList" v-model="selectedProject.name" placeholder="Choose" @change="emitAnswers">
       <el-option v-for="project in projects" :key="project" :value="project.name">
         <span style="float: left">{{ project.name }}</span>

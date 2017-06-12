@@ -1,43 +1,42 @@
 <template>
   <div id="MainForm">
-    <el-row>
-        <el-col :span="24"><JobSelector @job="setJob"></JobSelector></el-col>
-    </el-row>
-    <div v-if="isMaster || isInternship" >
-      <el-row>
-          <el-col :span="24"><q1 @q1="setQ1"></q1></el-col>
-      </el-row>
-      <el-row>
-          <el-col :span="24"><q2 @q2="setQ2"></q2></el-col>
-      </el-row>
-      <el-row>
-          <el-col :span="24"><q3 @q3="setQ3"></q3></el-col>
-      </el-row>
-      <el-row>
-          <el-col :span="24"><q4></q4></el-col>
-      </el-row>
-      <el-row>
-          <el-col :span="24"><q5 @q5="setQ5"></q5></el-col>
-      </el-row>
-      <el-row>
-          <el-col :span="24"><q6 @q6="setQ6"></q6></q5></el-col>
-      </el-row>
-      <el-row>
-          <el-col :span="24"><q7 @q7="setQ7"></q7></el-col>
-      </el-row>
-      <el-row>
-          <el-col :span="24"><q8 @q8="setQ8"></q8></q5></el-col>
-      </el-row>
-    </div>
-      <div v-if="isPhd || isPostDoc">
-        
+      <el-row class="questions">
+          <el-col :span="24"><JobSelector @job="setJob"></JobSelector></el-col>
+      </el-row >
+      <div v-if="isMaster || isInternship" >
+        <el-row class="questions">
+            <el-col :span="24"><q1 @q1="setQ1"></q1></el-col>
+        </el-row>
+        <el-row class="questions">
+            <el-col :span="24"><q2 @q2="setQ2"></q2></el-col>
+        </el-row>
+        <el-row class="questions">
+            <el-col :span="24"><q3 @q3="setQ3"></q3></el-col>
+        </el-row>
+        <el-row class="questions">
+            <el-col :span="24"><q4></q4></el-col>
+        </el-row>
+        <el-row class="questions">
+            <el-col :span="24"><q5 @q5="setQ5"></q5></el-col>
+        </el-row>
+        <el-row class="questions">
+            <el-col :span="24"><q6 @q6="setQ6"></q6></q5></el-col>
+        </el-row>
+        <el-row class="questions">
+            <el-col :span="24"><q7 @q7="setQ7"></q7></el-col>
+        </el-row>
+        <el-row class="questions">
+            <el-col :span="24"><q8 @q8="setQ8"></q8></q5></el-col>
+        </el-row>
       </div>
-      <div v-else>
-        <h1>Please select</h1>
-      </div>
-    <pre>
-      {{formData}}
-    </pre>
+        <div v-if="isPhd || isPostDoc">
+        </div>
+        <div v-else>
+          <h1>Please select</h1>
+        </div>
+      <pre>
+        {{formData}}
+      </pre>
   </div>
 </template>
 
@@ -153,5 +152,10 @@ export default {
 #MainForm {
   max-width: 1250px;
   margin: auto;
+  background-color: #F0F8FF;
+}
+
+.questions {
+  padding: 25px;
 }
 </style>

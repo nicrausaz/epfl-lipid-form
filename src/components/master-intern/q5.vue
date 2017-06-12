@@ -2,10 +2,10 @@
   <div id="q5">
     <h2>{{ question }}</h2>
     <h3>{{ description }}</h3>
-    Energy:<el-rate v-model="ratings.ratingEnergy" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
-    Confort:<el-rate v-model="ratings.ratingComfort" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
-    Perception:<el-rate v-model="ratings.ratingPerception" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
-    Health:<el-rate v-model="ratings.ratingHealth" :colors="['#F79999', '#F7BA2A', '#FF9900']" @change="emitStars"></el-rate>
+    <div class="rate">Energy:<el-rate v-model="ratings.ratingEnergy" :colors="colors" @change="emitStars" ></el-rate></div>
+    <div class="rate">Confort:<el-rate v-model="ratings.ratingComfort" :colors="colors" @change="emitStars"></el-rate></div>
+    <div class="rate">Perception:<el-rate v-model="ratings.ratingPerception" :colors="colors" @change="emitStars"></el-rate></div>
+    <div class="rate">Health:<el-rate v-model="ratings.ratingHealth" :colors="colors" @change="emitStars"></el-rate></div>
   </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
     return {
       question: 'Which of the following topics would you like to explore in your project?',
       description: 'Select more than one if applicable and specify your level of interest.',
+      colors: ['#F79999', '#F7BA2A', '#FF9900'],
       ratings: {
         ratingEnergy: 0,
         ratingComfort: 0,
@@ -34,5 +35,7 @@ export default {
 </script>
 
 <style scoped>
-
+.rate {
+  padding-bottom: 10px;
+}
 </style>

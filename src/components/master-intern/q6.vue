@@ -2,7 +2,7 @@
   <div id="q6">
     <h2>{{ question }}</h2>
     <el-switch v-model="showText" on-text="Yes" off-text="No" @change="emitAnswer"></el-switch>
-    <el-input v-if="showText" type="textarea" :rows="2" placeholder="Please type" v-model="answerText"  @change="emitAnswer"></el-input>
+    <el-input v-if="showText" type="textarea" autosize placeholder="Please type" id="textBox" v-model="answerText"  @change="emitAnswer"></el-input>
   </div>
 </template>
 
@@ -24,3 +24,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#textBox {
+  padding-top: 10px;
+}
+</style>
