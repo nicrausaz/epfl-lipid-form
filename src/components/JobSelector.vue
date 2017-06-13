@@ -3,7 +3,7 @@
     <el-row type="flex" justify="space-around">
       <el-col :span="4" v-for="job in jobs" :key="job" >
         <el-card :body-style="{ padding: '20px' }" class="cards">
-          <img src="../assets/pingu.png" draggable="false" class="image" @click="setSelectedJob(job.name)">
+          <img draggable="false" class="image" :src="job.img" @click="setSelectedJob(job.name)">
             <span>{{ job.name }}</span>
         </el-card>
       </el-col>
@@ -17,7 +17,7 @@ export default {
   data () {
     return {
       jobs: [
-        { name: 'Master', img: '../src/assets/pingu.png' },
+        { name: 'Master', img: '../assets/pingu.png' },
         { name: 'Internship', img: '../assets/pingu.png' },
         { name: 'Phd', img: '../assets/pingu.png' },
         { name: 'PostDoc', img: '../assets/pingu.png' }
@@ -40,7 +40,7 @@ export default {
 <style scoped>
 .cards {
   cursor: pointer;
-  background-color: lightgoldenrodyellow;
+  /* background-color: #ea5e00; */
   -webkit-user-select: none;    
   -moz-user-select: none;
   -ms-user-select: none;

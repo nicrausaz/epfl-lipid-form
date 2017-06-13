@@ -1,5 +1,7 @@
 <template>
   <div id="MainForm">
+    <div id="content">
+      <epflHeader></epflHeader>
       <el-row class="questions">
           <el-col :span="24"><JobSelector @job="setJob"></JobSelector></el-col>
       </el-row >
@@ -37,10 +39,12 @@
       <pre>
         {{formData}}
       </pre>
+    </div>
   </div>
 </template>
 
 <script>
+import epflHeader from './Epflheader'
 import JobSelector from './JobSelector'
 import q1 from './master-intern/q1'
 import q2 from './master-intern/q2'
@@ -135,6 +139,7 @@ export default {
     }
   },
   components: {
+    epflHeader,
     JobSelector,
     q1,
     q2,
@@ -150,12 +155,16 @@ export default {
 
 <style>
 #MainForm {
-  max-width: 1250px;
+  max-width: 1100px;
   margin: auto;
   background-color: #F0F8FF;
 }
 
 .questions {
+  padding-bottom: 20px;
+}
+
+#content {
   padding: 25px;
 }
 </style>
