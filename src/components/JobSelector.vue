@@ -3,7 +3,7 @@
     <el-row type="flex" justify="space-around">
       <el-col :span="4" v-for="job in jobs" :key="job" >
         <el-card :body-style="{ padding: '20px' }" class="cards">
-          <img draggable="false" class="image" :src="job.img" @click="setSelectedJob(job.name)">
+          <img draggable="false" class="image" src="../assets/pingu.png" @click="setSelectedJob(job.name)">
             <span>{{ job.name }}</span>
         </el-card>
       </el-col>

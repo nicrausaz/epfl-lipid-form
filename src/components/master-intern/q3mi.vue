@@ -1,6 +1,6 @@
 <template>
-  <div id="q3">
-    <h2>{{ question }}</h2>
+  <div id="q3mi">
+    <h3>{{ question }}</h3>
     <el-switch v-model="showList" on-text="Yes" off-text="No" @change="emitAnswers"></el-switch>
     <el-select v-if="showList" v-model="selectedProject.name" placeholder="Choose" @change="emitAnswers">
       <el-option v-for="project in projects" :key="project" :value="project.name">
@@ -15,7 +15,7 @@
 import projectList from '../../assets/projectList.json'
 
 export default {
-  name: 'q3',
+  name: 'q3mi',
   data () {
     return {
       question: 'Is there a specific currently proposed project you would like to work at?',
@@ -27,7 +27,7 @@ export default {
   methods: {
     emitAnswers () {
       console.log(this.showList)
-      this.$emit('q3', this.showList, this.selectedProject)
+      this.$emit('q3mi', this.showList, this.selectedProject)
     }
   }
 }

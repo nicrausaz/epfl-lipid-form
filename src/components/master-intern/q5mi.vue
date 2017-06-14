@@ -1,7 +1,7 @@
 <template>
-  <div id="q5">
-    <h2>{{ question }}</h2>
-    <h3>{{ description }}</h3>
+  <div id="q5mi">
+    <h3>{{ question }}</h3>
+    <h4>{{ description }}</h4>
     <div class="rate">Energy:<el-rate v-model="ratings.ratingEnergy" :colors="colors" @change="emitStars" ></el-rate></div>
     <div class="rate">Confort:<el-rate v-model="ratings.ratingComfort" :colors="colors" @change="emitStars"></el-rate></div>
     <div class="rate">Perception:<el-rate v-model="ratings.ratingPerception" :colors="colors" @change="emitStars"></el-rate></div>
@@ -12,7 +12,7 @@
 <script>
 
 export default {
-  name: 'q5',
+  name: 'q5mi',
   data () {
     return {
       question: 'Which of the following topics would you like to explore in your project?',
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     emitStars () {
-      this.$emit('q5', this.ratings)
+      this.$emit('q5mi', this.ratings)
     }
   }
 }

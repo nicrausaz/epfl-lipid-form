@@ -1,6 +1,6 @@
 <template>
-  <div id="q4">
-    <h2>{{ question }}</h2>
+  <div id="q4mi">
+    <h3>{{ question }}</h3>
     <el-switch v-model="showList" on-text="Yes" off-text="No"></el-switch>
   
     <el-select v-if="showList" v-model="selectedResearch" placeholder="Choose">
@@ -16,7 +16,7 @@
 import researchList from '../../assets/researchList.json'
 
 export default {
-  name: 'q4',
+  name: 'q4mi',
   data () {
     return {
       question: 'Is there a specific ongoing research project you would like to contribute to?',

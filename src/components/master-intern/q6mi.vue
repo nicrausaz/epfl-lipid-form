@@ -1,6 +1,6 @@
 <template>
-  <div id="q6">
-    <h2>{{ question }}</h2>
+  <div id="q6mi">
+    <h3>{{ question }}</h3>
     <el-switch v-model="showText" on-text="Yes" off-text="No" @change="emitAnswer"></el-switch>
     <el-input v-if="showText" type="textarea" autosize placeholder="Please type" id="textBox" v-model="answerText"  @change="emitAnswer"></el-input>
   </div>
@@ -9,7 +9,7 @@
 <script>
 
 export default {
-  name: 'q6',
+  name: 'q6mi',
   data () {
     return {
       question: 'Do you have a specific project in mind?',
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     emitAnswer () {
-      this.$emit('q6', this.showText, this.answerText)
+      this.$emit('q6mi', this.showText, this.answerText)
     }
   }
 }
