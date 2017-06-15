@@ -115,7 +115,9 @@ export default {
         q3: {
           text: ''
         },
-        q4: {},
+        q4: {
+          ratings: []
+        },
         q5: {},
         q6: {},
         q7: {}
@@ -162,7 +164,9 @@ export default {
     setQ3pp (text) {
       this.formDataPp.q3.text = text
     },
-    setQ4pp () {}
+    setQ4pp (ratings) {
+      this.formDataPp.q4.ratings = ratings
+    }
   },
   computed: {
     isMaster () {

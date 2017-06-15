@@ -26,17 +26,14 @@
     <el-row>
       <el-col :span="2">Other:</el-col>
       <el-col :span="5">
-        <el-input size="mini" placeholder="Please Input" v-model="other.text" @change="isOtherSelected"></el-input>
+        <el-input size="mini" placeholder="Please Input" v-model="ratings.other.text" @change="isOtherSelected"></el-input>
       </el-col>
       </el-col>
     </el-row>
   
     <div class="rate" >
-      <el-rate v-if="other.selected" v-model="other.rate" :colors="colors"></el-rate>
+      <el-rate v-if="ratings.other.selected" v-model="ratings.other.rate" :colors="colors" @change="emitStars"></el-rate>
     </div>
-
-    {{ other }}
-
   </div>
 </template>
 
@@ -52,26 +49,22 @@ export default {
         ratingEnergy: 0,
         ratingComfort: 0,
         ratingPerception: 0,
-        ratingHealth: 0
-      },
-      other: {
-        selected: false,
-        text: '',
-        rate: 0
+        ratingHealth: 0,
+        other: {
+          selected: false,
+          text: '',
+          rate: 0
+        }
       }
     }
   },
   methods: {
     emitStars () {
       this.$emit('q4pp', this.ratings)
-
-      if (this.other.selected) {
-        console.log()
-      }
     },
     isOtherSelected () {
-      this.text === '' ? this.other.selected = false : this.other.selected = true
-      return this.other.selected
+      this.text === '' ? this.ratings.other.selected = false : this.ratings.other.selected = true
+      return this.ratings.other.selected
     }
   }
 }
