@@ -8,7 +8,6 @@
     <el-date-picker v-model="projectDate" type="date" placeholder="From when you would be available to start your research?" @change="emitInfos" class="inputs"></el-date-picker>
     <el-input v-model="personalInfos.projectFunding" placeholder="Possible project funding" @change="emitInfos" class="inputs"></el-input>
     <el-input v-model="personalInfos.personalURL" placeholder="Optional: Personal URL" @change="emitInfos" class="inputs"></el-input>   
-    
   </div>
 </template>
 

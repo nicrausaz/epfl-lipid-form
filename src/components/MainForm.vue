@@ -31,14 +31,23 @@
             <el-col :span="24"><q8mi @q8mi="setQ8mi"></q8mi></q5></el-col>
         </el-row>
       </div>
-        <div v-if="isPhd || isPostDoc">
-          <el-row class="questions">
-            <el-col :span="24"><q1pp @q1pp="setQ1pp"></q1pp></el-col>
-          </el-row>
-        </div>
-        <div v-else>
-          <h1>Please select</h1>
-        </div>
+      <div v-if="isPhd || isPostDoc">
+        <el-row class="questions">
+          <el-col :span="24"><q1pp @q1pp="setQ1pp"></q1pp></el-col>
+        </el-row>
+        <el-row class="questions">
+          <el-col :span="24"><q2pp></q2pp></el-col>
+        </el-row>
+        <el-row class="questions">
+          <el-col :span="24"><q3pp @q3pp="setQ3pp"></q3pp></el-col>
+        </el-row>
+        <el-row class="questions">
+          <el-col :span="24"><q4pp @q4pp="setQ4pp"></q4pp></el-col>
+        </el-row>
+      </div>
+      <div v-else>
+        <h1>Please select</h1>
+      </div>
       <pre>
         {{formDataMi}}
         {{formDataPp}}
@@ -61,6 +70,9 @@ import q7mi from './master-intern/q7mi'
 import q8mi from './master-intern/q8mi'
 
 import q1pp from './phd-postdoc/q1pp'
+import q2pp from './phd-postdoc/q2pp'
+import q3pp from './phd-postdoc/q3pp'
+import q4pp from './phd-postdoc/q4pp'
 
 export default {
   name: 'MainForm',
@@ -100,7 +112,9 @@ export default {
           personalInfos: []
         },
         q2: {},
-        q3: {},
+        q3: {
+          text: ''
+        },
         q4: {},
         q5: {},
         q6: {},
@@ -143,7 +157,12 @@ export default {
     setQ8mi () { },
     setQ1pp (infos) {
       this.formDataPp.q1.personalInfos = infos
-    }
+    },
+    setQ2pp () {},
+    setQ3pp (text) {
+      this.formDataPp.q3.text = text
+    },
+    setQ4pp () {}
   },
   computed: {
     isMaster () {
@@ -170,7 +189,10 @@ export default {
     q6mi,
     q7mi,
     q8mi,
-    q1pp
+    q1pp,
+    q2pp,
+    q3pp,
+    q4pp
   }
 }
 </script>
