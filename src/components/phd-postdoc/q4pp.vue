@@ -31,7 +31,7 @@
       </el-col>
     </el-row>
   
-    <div class="rate" >
+    <div class="rate">
       <el-rate v-if="ratings.other.selected" v-model="ratings.other.rate" :colors="colors" @change="emitStars"></el-rate>
     </div>
   </div>

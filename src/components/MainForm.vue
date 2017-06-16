@@ -49,6 +49,9 @@
         <question-wrapper>
           <q6pp @q6pp="setQ6pp" slot="question"></q6pp>
         </question-wrapper>
+        <question-wrapper>
+          <q7pp @q7pp="setQ7pp" slot="question"></q7pp>
+        </question-wrapper>
       </div>
       <div v-else>
         <h1>Please select</h1>
@@ -64,6 +67,7 @@
 <script>
 import epflHeader from './Epflheader'
 import JobSelector from './JobSelector'
+import QuestionWrapper from '@/components/shared/questionWrapper'
 
 import q1mi from './master-intern/q1mi'
 import q2mi from './master-intern/q2mi'
@@ -80,8 +84,7 @@ import q3pp from './phd-postdoc/q3pp'
 import q4pp from './phd-postdoc/q4pp'
 import q5pp from './phd-postdoc/q5pp'
 import q6pp from './phd-postdoc/q6pp'
-
-import QuestionWrapper from '@/components/shared/questionWrapper'
+import q7pp from './phd-postdoc/q7pp'
 
 export default {
   name: 'MainForm',
@@ -134,7 +137,11 @@ export default {
           interest: '',
           selectedProject: ''
         },
-        q7: {}
+        q7: {
+          ratings: [],
+          other: []
+        },
+        q8: {}
       }
     }
   },
@@ -187,7 +194,12 @@ export default {
     setQ6pp (interest, project) {
       this.formDataPp.q6.interest = interest
       this.formDataPp.q6.selectedProject = project
-    }
+    },
+    setQ7pp (ratings, other) {
+      this.formDataPp.q7.ratings = ratings
+      this.formDataPp.q7.other = other
+    },
+    setQ8pp () { }
   },
   computed: {
     isMaster () {
@@ -206,6 +218,7 @@ export default {
   components: {
     epflHeader,
     JobSelector,
+    QuestionWrapper,
     q1mi,
     q2mi,
     q3mi,
@@ -220,7 +233,7 @@ export default {
     q4pp,
     q5pp,
     q6pp,
-    QuestionWrapper
+    q7pp
   }
 }
 </script>

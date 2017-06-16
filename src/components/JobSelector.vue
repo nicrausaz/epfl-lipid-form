@@ -3,7 +3,7 @@
     <el-row type="flex" justify="space-around">
       <el-col :span="8" v-for="job in jobs" :key="job" >
         <el-card :body-style="{ padding: '0px' }" class="cards">
-          <img draggable="false" class="image" :src="job.img" style="width: 200px;" @click="setSelectedJob(job.name)">
+          <img draggable="false" class="image" :src="job.img" @click="setSelectedJob(job.name)">
             <span>{{ job.name }}</span>
         </el-card>
       </el-col>
@@ -44,8 +44,12 @@ export default {
   -webkit-user-select: none;    
   -moz-user-select: none;
   -ms-user-select: none;
-  /* Rules below not implemented in browsers yet */
   -o-user-select: none;
   user-select: none;
+  width: 200px;
+}
+.image {
+  width: 200px;
+  height: 180px;
 }
 </style>

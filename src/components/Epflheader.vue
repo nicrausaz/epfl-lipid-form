@@ -1,11 +1,11 @@
 <template>
   <div id="header">
     <el-row :gutter="20">
-      <el-col :span="6">
-        <img src="static/Logo_EPFL.svg" class="images">
+      <el-col :span="6" >
+        <img src="static/Logo_EPFL.svg" class="images" draggable="false">
       </el-col>
       <el-col :span="6" :offset="12">
-        <img src="static/LIPID.png" class="images">
+        <img src="static/LIPID.png" class="images" draggable="false">
       </el-col>
     </el-row>
     <h1 style="color: #ea5e00;">
