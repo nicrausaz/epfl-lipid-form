@@ -2,48 +2,53 @@
   <div id="MainForm">
     <div id="content">
       <epflHeader></epflHeader>
-      <el-row class="questions">
-          <el-col :span="24"><JobSelector @job="setJob"></JobSelector></el-col>
-      </el-row >
-      <div  v-if="isMaster || isInternship">
-        <el-row class="questions">
-            <el-col :span="24"><q1mi @q1mi="setQ1mi"></q1mi></el-col>
-        </el-row>
-        <el-row class="questions">
-            <el-col :span="24"><q2mi @q2mi="setQ2mi"></q2mi></el-col>
-        </el-row>
-        <el-row class="questions">
-            <el-col :span="24"><q3mi @q3mi="setQ3mi"></q3mi></el-col>
-        </el-row>
-        <el-row class="questions">
-            <el-col :span="24"><q4mi></q4mi></el-col>
-        </el-row>
-        <el-row class="questions">
-            <el-col :span="24"><q5mi @q5mi="setQ5mi"></q5mi></el-col>
-        </el-row>
-        <el-row class="questions">
-            <el-col :span="24"><q6mi @q6mi="setQ6mi"></q6mi></q5></el-col>
-        </el-row>
-        <el-row class="questions">
-            <el-col :span="24"><q7mi @q7mi="setQ7mi"></q7mi></el-col>
-        </el-row>
-        <el-row class="questions">
-            <el-col :span="24"><q8mi @q8mi="setQ8mi"></q8mi></q5></el-col>
-        </el-row>
+      <JobSelector @job="setJob"></JobSelector>
+      
+      <div v-if="isMaster || isInternship">
+        <question-wrapper>
+          <q1mi @q1mi="setQ1mi" slot="question"></q1mi>
+        </question-wrapper>
+        <question-wrapper>
+          <q2mi @q2mi="setQ2mi" slot="question"></q2mi>
+        </question-wrapper>
+        <question-wrapper>
+          <q3mi @q3mi="setQ3mi" slot="question"></q3mi>
+        </question-wrapper>
+        <question-wrapper>
+          <q4mi @q4mi="setQ4mi" slot="question"></q4mi>
+        </question-wrapper>
+        <question-wrapper>
+          <q5mi @q5mi="setQ5mi" slot="question"></q5mi>
+        </question-wrapper>
+        <question-wrapper>
+          <q6mi @q6mi="setQ6mi" slot="question"></q6mi>
+        </question-wrapper>
+        <question-wrapper>
+          <q7mi @q7mi="setQ7mi" slot="question"></q7mi>
+        </question-wrapper>
+        <question-wrapper>
+          <q8mi @q8mi="setQ8mi" slot="question"></q8mi>
+        </question-wrapper>
       </div>
       <div v-if="isPhd || isPostDoc">
-        <el-row class="questions">
-          <el-col :span="24"><q1pp @q1pp="setQ1pp"></q1pp></el-col>
-        </el-row>
-        <el-row class="questions">
-          <el-col :span="24"><q2pp></q2pp></el-col>
-        </el-row>
-        <el-row class="questions">
-          <el-col :span="24"><q3pp @q3pp="setQ3pp"></q3pp></el-col>
-        </el-row>
-        <el-row class="questions">
-          <el-col :span="24"><q4pp @q4pp="setQ4pp"></q4pp></el-col>
-        </el-row>
+        <question-wrapper>
+          <q1pp @q1pp="setQ1pp" slot="question"></q1pp>
+        </question-wrapper>
+        <question-wrapper>
+          <q2pp slot="question"></q2pp>
+        </question-wrapper>
+        <question-wrapper>
+          <q3pp @q3pp="setQ3pp" slot="question"></q3pp>
+        </question-wrapper>
+        <question-wrapper>
+          <q4pp @q4pp="setQ4pp" slot="question"></q4pp>
+        </question-wrapper>
+        <question-wrapper>
+          <q5pp @q5pp="setQ5pp" slot="question"></q5pp>
+        </question-wrapper>
+        <question-wrapper>
+          <q6pp @q6pp="setQ6pp" slot="question"></q6pp>
+        </question-wrapper>
       </div>
       <div v-else>
         <h1>Please select</h1>
@@ -73,6 +78,10 @@ import q1pp from './phd-postdoc/q1pp'
 import q2pp from './phd-postdoc/q2pp'
 import q3pp from './phd-postdoc/q3pp'
 import q4pp from './phd-postdoc/q4pp'
+import q5pp from './phd-postdoc/q5pp'
+import q6pp from './phd-postdoc/q6pp'
+
+import QuestionWrapper from '@/components/shared/questionWrapper'
 
 export default {
   name: 'MainForm',
@@ -118,8 +127,13 @@ export default {
         q4: {
           ratings: []
         },
-        q5: {},
-        q6: {},
+        q5: {
+          answer: ''
+        },
+        q6: {
+          interest: '',
+          selectedProject: ''
+        },
         q7: {}
       }
     }
@@ -166,6 +180,13 @@ export default {
     },
     setQ4pp (ratings) {
       this.formDataPp.q4.ratings = ratings
+    },
+    setQ5pp (answer) {
+      this.formDataPp.q5.answer = answer
+    },
+    setQ6pp (interest, project) {
+      this.formDataPp.q6.interest = interest
+      this.formDataPp.q6.selectedProject = project
     }
   },
   computed: {
@@ -196,7 +217,10 @@ export default {
     q1pp,
     q2pp,
     q3pp,
-    q4pp
+    q4pp,
+    q5pp,
+    q6pp,
+    QuestionWrapper
   }
 }
 </script>

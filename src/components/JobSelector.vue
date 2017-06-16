@@ -1,9 +1,9 @@
 <template>
   <div id="jobSelector">
     <el-row type="flex" justify="space-around">
-      <el-col :span="4" v-for="job in jobs" :key="job" >
-        <el-card :body-style="{ padding: '20px' }" class="cards">
-          <img draggable="false" class="image" src="../assets/pingu.png" @click="setSelectedJob(job.name)">
+      <el-col :span="8" v-for="job in jobs" :key="job" >
+        <el-card :body-style="{ padding: '0px' }" class="cards">
+          <img draggable="false" class="image" :src="job.img" style="width: 200px;" @click="setSelectedJob(job.name)">
             <span>{{ job.name }}</span>
         </el-card>
       </el-col>
@@ -17,10 +17,10 @@ export default {
   data () {
     return {
       jobs: [
-        { name: 'Master', img: '../assets/pingu.png' },
-        { name: 'Internship', img: '../assets/pingu.png' },
-        { name: 'Phd', img: '../assets/pingu.png' },
-        { name: 'PostDoc', img: '../assets/pingu.png' }
+        { name: 'Master', img: 'static/master.jpg' },
+        { name: 'Internship', img: 'static/Internship.jpg' },
+        { name: 'Phd', img: 'static/Phd.jpg' },
+        { name: 'PostDoc', img: 'static/postdoc.jpg' }
       ],
       selectedJob: ''
     }
