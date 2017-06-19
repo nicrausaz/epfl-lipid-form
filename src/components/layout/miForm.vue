@@ -120,8 +120,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 #content {
   padding: 25px;
 }

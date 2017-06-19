@@ -5,6 +5,7 @@
       <JobSelector @job="setJob"></JobSelector>
       <miForm v-if="isMaster || isInternship"></miForm>
       <ppForm v-if="isPhd || isPostDoc"></ppForm>
+      <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
     </div>
   </div>
 </template>
@@ -19,12 +20,16 @@ export default {
   name: 'MainForm',
   data () {
     return {
-      selectedJob: ''
+      selectedJob: '',
+      formData: []
     }
   },
   methods: {
     setJob (job) {
       this.selectedJob = job
+    },
+    submit () {
+      alert('submit!')
     }
   },
   computed: {
@@ -58,5 +63,8 @@ export default {
 }
 #content {
   padding: 25px;
+}
+#submitBtn {
+  margin-left: 90%
 }
 </style>
