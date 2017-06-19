@@ -5,3 +5,9 @@
     </el-col>
   </el-row>
 </template>
+
+<style>
+.questions {
+  padding-bottom: 20px;
+}
+</style>

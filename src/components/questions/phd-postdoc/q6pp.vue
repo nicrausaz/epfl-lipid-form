@@ -1,5 +1,5 @@
 <template>
-  <div id="q3mi">
+  <div id="q6pp">
     <h3>{{ question }}</h3>
     <el-switch v-model="showList" on-text="Yes" off-text="No" @change="emitAnswers"></el-switch>
     <el-select v-if="showList" v-model="selectedProject.name" placeholder="Choose" @change="emitAnswers">
@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import projectList from '../../assets/projectList.json'
+import projectList from '@/data/projectList.json'
 
 export default {
-  name: 'q3mi',
+  name: 'q6pp',
   data () {
     return {
-      question: 'Is there a specific currently proposed project you would like to work at?',
+      question: 'Identify ongoing projects in LIPID that you think you could connect to your research, directly or indirectly',
       projects: projectList.projects,
       selectedProject: { name: '', responsibleName: '', responsibleMail: '' },
       showList: false
@@ -26,8 +26,7 @@ export default {
   },
   methods: {
     emitAnswers () {
-      console.log(this.showList)
-      this.$emit('q3mi', this.showList, this.selectedProject)
+      this.$emit('q6pp', this.showList, this.selectedProject)
     }
   }
 }
