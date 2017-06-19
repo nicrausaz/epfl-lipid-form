@@ -1,7 +1,7 @@
 <template>
   <div id="jobSelector">
     <el-row type="flex" justify="space-around">
-      <el-col :span="8" v-for="job in jobs" :key="job" >
+      <el-col :span="8" v-for="job in jobs" :key="job">
         <el-card :body-style="{ padding: '0px' }" class="cards">
           <img draggable="false" class="image" :src="job.img" @click="setSelectedJob(job.name)">
             <span>{{ job.name }}</span>
@@ -51,5 +51,8 @@ export default {
 .image {
   width: 200px;
   height: 180px;
+}
+#jobSelector {
+  padding-bottom: 30px;
 }
 </style>

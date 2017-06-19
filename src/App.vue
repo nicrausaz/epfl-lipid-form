@@ -6,7 +6,7 @@
 
 <script>
   /* eslint-disable */
-  import MainForm from './components/MainForm'
+  import MainForm from '@/components/MainForm'
   
   export default {
     name: 'app',

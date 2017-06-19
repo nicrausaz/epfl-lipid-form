@@ -5,9 +5,10 @@
     <el-input v-model="personalInfos.familyName" placeholder="Family name" @change="emitInfos" class="inputs"></el-input>
     <el-input v-model="personalInfos.email" placeholder="Email" type="email" @change="emitInfos" class="inputs"></el-input>
     <el-input v-model="personalInfos.university" placeholder="Education (University Affiliations and degrees)" @change="emitInfos" class="inputs"></el-input>
-    <el-date-picker v-model="projectDate" type="date" placeholder="From when you would be available to start your research?" @change="emitInfos" class="inputs"></el-date-picker>
+    <el-date-picker v-model="personalInfos.projectDate" type="date" placeholder="From when you would be available to start your research?" @change="emitInfos" class="inputs"></el-date-picker>
     <el-input v-model="personalInfos.projectFunding" placeholder="Possible project funding" @change="emitInfos" class="inputs"></el-input>
-    <el-input v-model="personalInfos.personalURL" placeholder="Optional: Personal URL" @change="emitInfos" class="inputs"></el-input>   
+    <el-input v-model="personalInfos.personalURL" placeholder="Optional: Personal URL" @change="emitInfos" class="inputs"></el-input>
+    {{formatDate}}
   </div>
 </template>
 
@@ -35,7 +36,8 @@ export default {
   },
   computed: {
     formatDate () {
-      // TODO
+      let date = new Date(this.personalInfos.projectDate)
+      console.log(date.getDate())
     }
   }
 }

@@ -11,7 +11,6 @@
     <h1 style="color: #ea5e00;">
       <a href="http://lipid.epfl.ch/" id="lipidlink">EPFL-LIPID </a> POSTULATION FORM</h1>
     <el-menu class="menu" mode="horizontal"></el-menu>
-  
   </div>
 </template>
 
