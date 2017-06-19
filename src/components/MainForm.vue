@@ -52,6 +52,12 @@
         <question-wrapper>
           <q7pp @q7pp="setQ7pp" slot="question"></q7pp>
         </question-wrapper>
+        <question-wrapper>
+          <q8pp @q8pp="setQ8pp" slot="question"></q8pp>
+        </question-wrapper>
+        <question-wrapper>
+          <q9pp @q9pp="setQ9pp" slot="question"></q9pp>
+        </question-wrapper>
       </div>
       <div v-else>
         <h1>Please select</h1>
@@ -85,6 +91,8 @@ import q4pp from './phd-postdoc/q4pp'
 import q5pp from './phd-postdoc/q5pp'
 import q6pp from './phd-postdoc/q6pp'
 import q7pp from './phd-postdoc/q7pp'
+import q8pp from './phd-postdoc/q8pp'
+import q9pp from './phd-postdoc/q9pp'
 
 export default {
   name: 'MainForm',
@@ -141,7 +149,12 @@ export default {
           ratings: [],
           other: []
         },
-        q8: {}
+        q8: {
+          answer: ''
+        },
+        q9: {
+          answer: ''
+        }
       }
     }
   },
@@ -199,7 +212,12 @@ export default {
       this.formDataPp.q7.ratings = ratings
       this.formDataPp.q7.other = other
     },
-    setQ8pp () { }
+    setQ8pp (answer) {
+      this.formDataPp.q8.answer = answer
+    },
+    setQ9pp (answer) {
+      this.formDataPp.q9.answer = answer
+    }
   },
   computed: {
     isMaster () {
@@ -233,7 +251,9 @@ export default {
     q4pp,
     q5pp,
     q6pp,
-    q7pp
+    q7pp,
+    q8pp,
+    q9pp
   }
 }
 </script>
