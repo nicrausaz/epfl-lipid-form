@@ -44,7 +44,6 @@ export default {
   data () {
     return {
       formDataMi: {
-        selectedJob: '',
         q1: {
           choices: [],
           textOther: ''
@@ -58,7 +57,7 @@ export default {
         },
         q4: {
           interest: '',
-          selectedProject: ''
+          selectedResearch: ''
         },
         q5: {
           ratings: []
@@ -86,13 +85,12 @@ export default {
     },
     setQ3mi (checked, selectedProject) {
       this.formDataMi.q3.interest = checked
-      if (checked) {
-        this.formDataMi.q3.selectedProject = selectedProject
-      } else {
-        this.formDataMi.q3.selectedProject = ''
-      }
+      checked ? this.formDataMi.q3.selectedProject = selectedProject : this.formDataMi.q3.selectedProject = ''
     },
-    setQ4mi () { },
+    setQ4mi (checked, selectedResearch) {
+      this.formDataMi.q4.interest = checked
+      checked ? this.formDataMi.q4.selectedResearch = selectedResearch : this.formDataMi.q4.selectedResearch = ''
+    },
     setQ5mi (ratings) {
       this.formDataMi.q5.ratings = ratings
     },

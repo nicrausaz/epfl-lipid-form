@@ -94,7 +94,7 @@ export default {
     },
     setQ6pp (interest, project) {
       this.formDataPp.q6.interest = interest
-      this.formDataPp.q6.selectedProject = project
+      interest ? this.formDataPp.q6.selectedProject = project : this.formDataPp.q6.selectedProject = ''
     },
     setQ7pp (ratings, other) {
       this.formDataPp.q7.ratings = ratings
