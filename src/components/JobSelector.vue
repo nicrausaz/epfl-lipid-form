@@ -4,14 +4,13 @@
       <el-col :span="8" v-for="job in jobs" :key="job">
         <el-card :body-style="{ padding: '0px' }" class="cards">
           <img draggable="false" class="image" :src="job.img" @click="setSelectedJob(job.name)">
-            <span>{{ job.name }}</span>
+            <div class="cardTitle">{{ job.name }}</div>
         </el-card>
       </el-col>
     </el-row>
   </div>
-</template>
+</template><script>
 
-<script>
 export default {
   name: 'jobSelector',
   data () {
@@ -54,5 +53,9 @@ export default {
 }
 #jobSelector {
   padding-bottom: 30px;
+}
+.cardTitle {
+  text-align: center;
+  font-size: 20px;
 }
 </style>
