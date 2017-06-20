@@ -1,5 +1,5 @@
 <template>
-  <div id="ppForm">
+  <div id="ppForm" @change="emitData">
     <question-wrapper>
       <q1pp @q1pp="setQ1pp" slot="question"></q1pp>
     </question-wrapper>
@@ -27,7 +27,6 @@
     <question-wrapper>
       <q9pp @q9pp="setQ9pp" slot="question"></q9pp>
     </question-wrapper>
-    <pre>{{formDataPp}}</pre>
   </div>
 </template>
 
@@ -105,6 +104,9 @@ export default {
     },
     setQ9pp (answer) {
       this.formDataPp.q9.answer = answer
+    },
+    emitData () {
+      this.$emit('ppForm', this.formDataPp)
     }
   },
   components: {

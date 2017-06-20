@@ -1,6 +1,5 @@
 <template>
   <div id="q1mi" v-on:change="emitAnswers">
-
     <h3>{{ question }}</h3>
 
     <el-checkbox-group v-model="answers" id="checkboxGroup">

@@ -1,5 +1,5 @@
 <template>
-  <div id="miForm">
+  <div id="miForm" @change="emitData">
     <question-wrapper>
       <q1mi @q1mi="setQ1mi" slot="question"></q1mi>
     </question-wrapper>
@@ -24,7 +24,6 @@
     <question-wrapper>
       <q8mi @q8mi="setQ8mi" slot="question"></q8mi>
     </question-wrapper>
-    <pre>{{formDataMi}}</pre>
   </div>
 </template>
 
@@ -101,7 +100,10 @@ export default {
     setQ7mi (infos) {
       this.formDataMi.q7.personalInfos = infos
     },
-    setQ8mi () { }
+    setQ8mi () { },
+    emitData () {
+      this.$emit('miForm', this.formDataMi)
+    }
   },
   components: {
     QuestionWrapper,

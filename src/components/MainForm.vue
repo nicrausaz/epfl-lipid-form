@@ -3,9 +3,10 @@
     <div id="content">
       <epflHeader></epflHeader>
       <JobSelector @job="setJob"></JobSelector>
-      <miForm v-if="isMaster || isInternship"></miForm>
-      <ppForm v-if="isPhd || isPostDoc"></ppForm>
+      <miForm v-if="isMaster || isInternship" @miForm="setData"></miForm>
+      <ppForm v-if="isPhd || isPostDoc" @ppForm="setData"></ppForm>
       <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
+      <pre>{{ formData }}</pre>
     </div>
   </div>
 </template>
@@ -21,15 +22,26 @@ export default {
   data () {
     return {
       selectedJob: '',
-      formData: []
+      formData: [],
+      errors: []
     }
   },
   methods: {
     setJob (job) {
       this.selectedJob = job
     },
+    setData (data) {
+      this.formData = data
+    },
     submit () {
-      alert('submit!')
+      this.checkData()
+    },
+    checkData () {
+      if (this.isMaster || this.isInternship) {
+        console.log('asdg')
+      } else {
+        
+      }
     }
   },
   computed: {
