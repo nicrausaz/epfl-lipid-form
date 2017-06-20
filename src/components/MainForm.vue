@@ -40,7 +40,7 @@ export default {
       if (this.isMaster || this.isInternship) {
         console.log('asdg')
       } else {
-        
+        console.log('sds')
       }
     }
   },
