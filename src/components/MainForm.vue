@@ -1,6 +1,6 @@
 <template>
   <div id="MainForm">
-    <div id="content">
+    <div id="content" >
       <epflHeader></epflHeader>
       <JobSelector @job="setJob"></JobSelector>
       <miForm v-if="isMaster || isInternship" @miForm="setData"></miForm>
@@ -34,7 +34,15 @@ export default {
       this.formData = data
     },
     submit () {
-      this.checkData()
+      // this.checkData()
+      this.axios.post('http://localhost/sites/lipid-form/index.php', {
+        data: this.formData
+      })
+      .then(response => {
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
     },
     checkData () {
       if (this.isMaster || this.isInternship) {

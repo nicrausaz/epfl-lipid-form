@@ -5,10 +5,13 @@ import '../theme/index.css'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import App from './App'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI, { locale })
+Vue.use(VueAxios, axios)
 
 /* eslint-disable no-new */
 new Vue({
