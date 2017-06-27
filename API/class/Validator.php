@@ -78,7 +78,7 @@
 		}
 
 		public function checkPpRequired () {
-			$this->postedData;
+			// $this->postedData;
 		}
 
 		private function checkSelectedJob() {

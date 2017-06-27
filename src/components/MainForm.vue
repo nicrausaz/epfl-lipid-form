@@ -35,13 +35,13 @@ export default {
     },
     submit () {
       // this.checkData()
-      this.axios.post('http://localhost/sites/lipid-form/index.php', {
-        data: this.formData
-      })
+      this.$http.post('http://localhost/sites/lipid-form/index.php', this.formData)
       .then(response => {
+        console.dir(JSON.parse(response.data))
       })
       .catch(e => {
         this.errors.push(e)
+        console.dir(e)
       })
     },
     checkData () {
