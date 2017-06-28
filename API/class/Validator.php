@@ -42,17 +42,17 @@
 				foreach ($this->postedData['data']['q1']['choices'] as $key => $value) {
 					if ($value === 'Other') {
 						if ($this->postedData['data']['q1']['textOther'] === '') {
-							$this->errors['OtherText'] = 'Please fill';
+							$this->errors['OtherText'] = 'Text input must be filled';
 						}
 					}
 				}
 			}
 			else {
-				$this->errors['choices'] = 'Select at least one';
+				$this->errors['choices'] = 'Select at least one checkbox';
 			}
 
 			if (is_null($this->postedData['data']['q2']['interestInLab']) || $this->postedData['data']['q2']['interestInLab'] === '') {
-				$this->errors['interestInLab'] = 'Please fill';
+				$this->errors['interestInLab'] = 'Missing answer for question 2';
 			}
 
 			if ($this->postedData['data']['q3']['interest']) {
