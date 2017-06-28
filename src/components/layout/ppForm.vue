@@ -52,7 +52,7 @@ export default {
         },
         q2: {},
         q3: {
-          text: ''
+          answer: ''
         },
         q4: {
           ratings: []
@@ -82,8 +82,8 @@ export default {
       this.formDataPp.q1.personalInfos = infos
     },
     setQ2pp () { },
-    setQ3pp (text) {
-      this.formDataPp.q3.text = text
+    setQ3pp (answer) {
+      this.formDataPp.q3.answer = answer
     },
     setQ4pp (ratings) {
       this.formDataPp.q4.ratings = ratings

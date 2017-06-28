@@ -6,7 +6,7 @@
 		function __construct($data) {
 				$this->postedData = $data;
 				$this->mainCheck();
-        $this->returnStatus();
+        print_r($this->returnStatus());
 		}
 
 		private function mainCheck ()  {
@@ -74,25 +74,39 @@
 				}
 			}
 
-			foreach ($this->postedData['data']['q7']['personalInfos'] as $key => $value) {
-				if ($value == '') {
-					$this->errors[$key] = 'Please fill';
-				}
-			}
+      if (!empty($this->postedData['data']['q7']['personalInfos'])){
+        foreach ($this->postedData['data']['q7']['personalInfos'] as $key => $value) {
+          if ($value == '') {
+            echo $key;
+            $this->errors[$key] = 'Please fill';
+          }
+			  }
+      }
+      else {
+        $this->errors['personalInfos'] = 'Please fill';
+      }
+			
 		}
 
 		private function checkPpRequired () {
-			foreach ($this->postedData['data']['q1']['personalInfos'] as $key => $value) {
-				if ($value == '') {
-					$this->errors[$key] = 'Please fill';
-				}
-			}
+      if (!empty($this->postedData['data']['q1']['personalInfos'])){
+        foreach ($this->postedData['data']['q1']['personalInfos'] as $key => $value) {
+          if ($key !== 'personalURL') {
+            if ($value == '') {
+              $this->errors[$key] = 'Please fill';
+            }
+          } 
+        }
+      }
+      else {
+        $this->errors['personalInfos'] = 'Please fill';
+      }
 
-      if (is_null($this->postedData['data']['q3']) || $this->postedData['data']['q3'] === '') {
+      if (is_null($this->postedData['data']['q3']['answer']) || $this->postedData['data']['q3']['answer'] === '') {
 				$this->errors['knowAboutLab'] = 'Please fill';
 			}
 
-      if (is_null($this->postedData['data']['q5']) || $this->postedData['data']['q5'] === '') {
+      if (is_null($this->postedData['data']['q5']['answer']) || $this->postedData['data']['q5']['answer'] === '') {
 				$this->errors['mindProject'] = 'Please fill';
 			}
 
@@ -102,12 +116,12 @@
 				}
 			}
 
-      if (is_null($this->postedData['data']['q7']) || $this->postedData['data']['q7'] === '') {
-				$this->errors['fitForLipid'] = 'Please fill';
+      if (is_null($this->postedData['data']['q8']['answer']) || $this->postedData['data']['q8']['answer'] === '') {
+				$this->errors['fitForYou'] = 'Please fill';
 			}
 
-      if (is_null($this->postedData['data']['q8']) || $this->postedData['data']['q8'] === '') {
-				$this->errors['fitForYou'] = 'Please fill';
+      if (is_null($this->postedData['data']['q9']['answer']) || $this->postedData['data']['q9']['answer'] === '') {
+				$this->errors['fitForLipid'] = 'Please fill';
 			}
 		}
 
