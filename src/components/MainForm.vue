@@ -36,7 +36,6 @@ export default {
       this.formData.data = data
     },
     submit () {
-      // this.checkData()
       this.$http.post('http://lipid-form.local', this.formData)
       .then(response => {
         console.dir(JSON.parse(response.data))
@@ -45,13 +44,6 @@ export default {
         this.errors.push(e)
         console.dir(e)
       })
-    },
-    checkData () {
-      if (this.isMaster || this.isInternship) {
-        console.log('asdg')
-      } else {
-        console.log('sds')
-      }
     }
   },
   computed: {

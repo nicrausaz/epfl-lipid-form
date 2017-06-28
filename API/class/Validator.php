@@ -6,23 +6,32 @@
 		function __construct($data) {
 				$this->postedData = $data;
 				$this->mainCheck();
+        $this->returnStatus();
 		}
 
 		private function mainCheck ()  {
 			if ($this->checkSelectedJob()) {
-				if ($this->postedData['selectedJob'] == 'Master' || $this->postedData['selectedJob'] == 'Internship') {
-					$this->checkMiRequired();
-				}
-				else if ($this->postedData['selectedJob'] == 'Phd' || $this->postedData['selectedJob'] == 'Postdoc') {
-					$this->checkPpRequired();
-				}
-				else {
-					$this->errors['job'] = 'Invalid job';
-				}
+        
+        if (!empty($this->postedData['data'])) {
+
+          if ($this->postedData['selectedJob'] == 'Master' || $this->postedData['selectedJob'] == 'Internship') {
+					  $this->checkMiRequired();
+				  }
+				  else if ($this->postedData['selectedJob'] == 'Phd' || $this->postedData['selectedJob'] == 'Postdoc') {
+					  $this->checkPpRequired();
+				  }
+				  else {
+				  	$this->errors['job'] = 'Invalid job';
+				  }
+        }
+        else {
+          $this->errors['data'] = 'Fill the form';
+        }
 			}
-			else {
-				$this->errors['job'] = 'Select a job';
-			}
+      else {
+        $this->errors['job'] = 'Select a job';
+      }
+			
 			echo '<pre>';
       print_r($this->postedData);
 			print_r($this->errors);
@@ -107,11 +116,12 @@
 		}
 
     public function returnStatus () {
-      
-    }
-
-    public function getErrors () {
-      return $this->errors;
+      if (count($this->errors) > 0) {
+        return $this->errors;
+      }
+      else {
+        // return success
+      }
     }
   }
 ?>
