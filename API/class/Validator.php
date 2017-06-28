@@ -17,7 +17,7 @@
           if ($this->postedData['selectedJob'] == 'Master' || $this->postedData['selectedJob'] == 'Internship') {
 					  $this->checkMiRequired();
 				  }
-				  else if ($this->postedData['selectedJob'] == 'Phd' || $this->postedData['selectedJob'] == 'Postdoc') {
+				  else if ($this->postedData['selectedJob'] == 'Phd' || $this->postedData['selectedJob'] == 'PostDoc') {
 					  $this->checkPpRequired();
 				  }
 				  else {
@@ -31,11 +31,10 @@
       else {
         $this->errors['job'] = 'Select a job';
       }
-			
-			echo '<pre>';
-      print_r($this->postedData);
-			print_r($this->errors);
-			echo '</pre>';
+			// echo '<pre>';
+      // print_r($this->postedData);
+			// print_r($this->errors);
+			// echo '</pre>';
 		}
 
 		private function checkMiRequired () {
@@ -95,7 +94,7 @@
             if ($value == '') {
               $this->errors[$key] = 'Please fill';
             }
-          } 
+          }
         }
       }
       else {
@@ -105,6 +104,16 @@
       if (is_null($this->postedData['data']['q3']['answer']) || $this->postedData['data']['q3']['answer'] === '') {
 				$this->errors['knowAboutLab'] = 'Please fill';
 			}
+
+      if (!empty($this->postedData['data']['q4']['ratings']['other'])) {
+        if ($this->postedData['data']['q4']['ratings']['other']['selected']) {
+          if ($this->postedData['data']['q4']['ratings']['other']['text'] !== '') {
+              if ($this->postedData['data']['q4']['ratings']['other']['rate'] <= 0) {
+                $this->errors['topicOther'] = 'Please rate';
+              }
+          }
+        }
+      }
 
       if (is_null($this->postedData['data']['q5']['answer']) || $this->postedData['data']['q5']['answer'] === '') {
 				$this->errors['mindProject'] = 'Please fill';
@@ -116,6 +125,13 @@
 				}
 			}
 
+      if (!empty($this->postedData['data']['q7']['other'])) {
+        if ($this->postedData['data']['q7']['other']['text'] !== '') {
+            if ($this->postedData['data']['q7']['other']['rate'] <= 0) {
+              $this->errors['areasOther'] = 'Please rate';
+            }
+        }
+      }
       if (is_null($this->postedData['data']['q8']['answer']) || $this->postedData['data']['q8']['answer'] === '') {
 				$this->errors['fitForYou'] = 'Please fill';
 			}
@@ -131,10 +147,10 @@
 
     public function returnStatus () {
       if (count($this->errors) > 0) {
-        return $this->errors;
+        return json_encode($this->errors);
       }
       else {
-        // return success
+        return json_encode([]);
       }
     }
   }

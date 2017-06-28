@@ -7,6 +7,10 @@
       <ppForm v-if="isPhd || isPostDoc" @ppForm="setData"></ppForm>
       <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
       <pre>{{ formData }}</pre>
+      <pre>{{ errors }}</pre>
+      <!--<ul>
+      <li v-for="error in errors" :key="error">{{ error }}</li>
+      </ul>-->
     </div>
   </div>
 </template>
@@ -38,11 +42,17 @@ export default {
     submit () {
       this.$http.post('http://lipid-form.local', this.formData)
       .then(response => {
-        console.dir(JSON.parse(response.data))
+        this.errors = Object.values(response.data)
+        if (this.errors.length > 0) {
+          this.openPopup()
+        }
       })
-      .catch(e => {
-        this.errors.push(e)
-        console.dir(e)
+      .catch(e => {})
+    },
+    openPopup () {
+      this.$notify.warning({
+        title: 'Some errors happened:',
+        message: this.errors.toString()
       })
     }
   },

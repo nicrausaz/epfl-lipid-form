@@ -6,5 +6,4 @@
 
   $postedData = json_decode(file_get_contents('php://input'), true);
   $Validator = new Validator($postedData);
-  //echo json_encode();
 ?>
