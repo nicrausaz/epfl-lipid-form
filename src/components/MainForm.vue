@@ -21,21 +21,23 @@ export default {
   name: 'MainForm',
   data () {
     return {
-      selectedJob: '',
-      formData: [],
+      formData: {
+        selectedJob: '',
+        data: []
+      },
       errors: []
     }
   },
   methods: {
     setJob (job) {
-      this.selectedJob = job
+      this.formData.selectedJob = job
     },
     setData (data) {
-      this.formData = data
+      this.formData.data = data
     },
     submit () {
       // this.checkData()
-      this.$http.post('http://localhost/sites/lipid-form/index.php', this.formData)
+      this.$http.post('http://lipid-form.local', this.formData)
       .then(response => {
         console.dir(JSON.parse(response.data))
       })
@@ -54,16 +56,16 @@ export default {
   },
   computed: {
     isMaster () {
-      return this.selectedJob === 'Master'
+      return this.formData.selectedJob === 'Master'
     },
     isInternship () {
-      return this.selectedJob === 'Internship'
+      return this.formData.selectedJob === 'Internship'
     },
     isPhd () {
-      return this.selectedJob === 'Phd'
+      return this.formData.selectedJob === 'Phd'
     },
     isPostDoc () {
-      return this.selectedJob === 'PostDoc'
+      return this.formData.selectedJob === 'PostDoc'
     }
   },
   components: {
