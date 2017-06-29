@@ -1,7 +1,7 @@
 <template>
   <div id="q2mi">
     <h3>{{ question }}</h3>
-    <el-input type="textarea" autosize placeholder="Please type" v-model="answer" v-on:change="isValid"></el-input>
+    <el-input type="textarea" autosize placeholder="Please type" v-model="answer" @change="isValid"></el-input>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="q5mi">
+  <div id="q5mi" @change="emitStars">
     <h3>{{ question }}</h3>
     <h4>{{ description }}</h4>
     <div class="rate">Energy:<el-rate v-model="ratings.ratingEnergy" :colors="colors" @change="emitStars" ></el-rate></div>

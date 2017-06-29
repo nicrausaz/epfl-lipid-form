@@ -2,7 +2,7 @@
   <div id="q4pp">
     <h3>{{ question }}</h3>
     <h4>{{ description }}</h4>
-  
+
     Energy:
     <div class="rate">
       <el-rate v-model="ratings.ratingEnergy" :colors="colors" @change="emitStars"></el-rate>
