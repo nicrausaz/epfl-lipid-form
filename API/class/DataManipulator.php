@@ -1,31 +1,23 @@
 <?php
   class DataManipulator {
     public $data;
-    private $dataPath = '../Data/';
-    private $logsPath = '../php_logs/';
-    private $userDataPath = '';
+    public $dataPath = "D:/Data/";
+    public $logsPath = "D:/php_logs/";
+    public $userDataPath = '';
 
     public function __constructor ($data) {
         $this->data = $data;
-        //$this->userDataPath = $this->userDataPath;
+        $this->userDataPath = $this->userDataPath . uniqid(); //wtf
         $this->createFolders();
-        print_r($data);
     }
 
     public function createFolders () {
-      if (!mkdir($this->$dataPath, 0777, true)) {
-        $this->log('Data folder creation failed');
+      if (!mkdir($this->userDataPath, 0777, true)) {
+        $this->log('User folder creation failed');
       }
       else {
-        $this->log('Data folder created');
+        $this->log('User folder created');
       }
-
-      // if (!mkdir($this->$userDataPath, 0777, true)) {
-      //   $this->log('User folder creation failed');
-      // }
-      // else {
-      //   $this->log('User folder created');
-      // }
     }
 
     public function writeDataFile () {
@@ -38,8 +30,8 @@
     }
 
     public function log ($log) {
-      $date = date('d-m-Y');
-      $content = file_get_contents('logs.txt');
+      $date = date('d-m-Y-H-i-s');
+      $content = file_get_contents($this->logsPath . 'logs.txt');
       $content .= file_put_contents($this->logsPath . 'logs.txt', $date . $log);
     }
 

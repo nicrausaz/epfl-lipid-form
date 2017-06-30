@@ -8,8 +8,8 @@
       <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
       <pre>{{ errors }}</pre>
       <!--<popup :show="hasError" :errors="errors"></popup>
-      {{ hasError }}
-      <pre>{{ formData }}</pre>-->
+      {{ hasError }}-->
+      <pre>{{ formData }}</pre>
     </div>
   </div>
 </template>

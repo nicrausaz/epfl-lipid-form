@@ -1,10 +1,10 @@
 <template>
   <div id="ppForm" @change="emitData">
     <question-wrapper>
-      <q1pp @q1pp="setQ1pp" slot="question"></q1pp>
+      <q1pp @q1pp="setPersonalInfos" slot="question"></q1pp>
     </question-wrapper>
     <question-wrapper>
-      <q2pp slot="question"></q2pp>
+      <q2pp @q1pp="setFiles" slot="question"></q2pp>
     </question-wrapper>
     <question-wrapper>
       <q3pp @q3pp="setQ3pp" slot="question"></q3pp>
@@ -47,10 +47,8 @@ export default {
   data () {
     return {
       formDataPp: {
-        q1: {
-          personalInfos: []
-        },
-        q2: {},
+        personalInfos: [],
+        files: [],
         q3: {
           answer: ''
         },
@@ -78,10 +76,10 @@ export default {
     }
   },
   methods: {
-    setQ1pp (infos) {
-      this.formDataPp.q1.personalInfos = infos
+    setPersonalInfos (infos) {
+      this.formDataPp.personalInfos = infos
     },
-    setQ2pp () { },
+    setFiles () { },
     setQ3pp (answer) {
       this.formDataPp.q3.answer = answer
     },

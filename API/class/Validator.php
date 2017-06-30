@@ -71,8 +71,8 @@
 				}
 			}
 
-      if (!empty($this->postedData['data']['q7']['personalInfos'])){
-        foreach ($this->postedData['data']['q7']['personalInfos'] as $key => $value) {
+      if (!empty($this->postedData['data']['personalInfos'])){
+        foreach ($this->postedData['data']['personalInfos'] as $key => $value) {
           if ($value == '') {
             $this->errors[$key] = 'Question7: Missing some personal informations';
           }
@@ -84,8 +84,8 @@
 		}
 
 		private function checkPpRequired () {
-      if (!empty($this->postedData['data']['q1']['personalInfos'])){
-        foreach ($this->postedData['data']['q1']['personalInfos'] as $key => $value) {
+      if (!empty($this->postedData['data']['personalInfos'])){
+        foreach ($this->postedData['data']['personalInfos'] as $key => $value) {
           if ($key !== 'personalURL') {
             if ($value == '') {
               $this->errors[$key] = 'Question1: Missing some personal informations';
