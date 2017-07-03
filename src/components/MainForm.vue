@@ -1,14 +1,13 @@
 <template>
   <div id="MainForm">
-    <div id="content" >
+    <div id="content">
       <epflHeader></epflHeader>
       <JobSelector @job="setJob"></JobSelector>
       <miForm v-if="isMaster || isInternship" @miForm="setData"></miForm>
       <ppForm v-if="isPhd || isPostDoc" @ppForm="setData"></ppForm>
       <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
       <pre>{{ errors }}</pre>
-      <!--<popup :show="hasError" :errors="errors"></popup>
-      {{ hasError }}-->
+      <!--<popup :show="hasError" :errors="errors"></popup>-->
       <pre>{{ formData }}</pre>
     </div>
   </div>

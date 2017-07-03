@@ -1,39 +1,46 @@
 <?php
   class DataManipulator {
-    public $data;
-    public $dataPath = "D:/Data/";
+    public $data = [];
+    public $dataPath = "D:/data/";
     public $logsPath = "D:/php_logs/";
     public $userDataPath = '';
+    public $userFullName = '';
 
-    public function __constructor ($data) {
-        $this->data = $data;
-        $this->userDataPath = $this->userDataPath . uniqid(); //wtf
-        $this->createFolders();
+    function __construct ($data) {
+      $this->data = $data;
+      $this->userFullName = $this->data['data']['personalInfos']['name'] . $this->data['data']['personalInfos']['familyName'];
+      $this->userDataPath = $this->dataPath . $this->userFullName .'/';
+      $this->createFolders();
     }
 
     public function createFolders () {
-      if (!mkdir($this->userDataPath, 0777, true)) {
-        $this->log('User folder creation failed');
+      if (!is_dir($this->userDataPath)) {
+        if (mkdir($this->userDataPath, 0777, true)) {
+          $this->writeDataFile();
+        }
+        else {
+          // error
+        }
       }
       else {
-        $this->log('User folder created');
+        // error
       }
     }
 
     public function writeDataFile () {
-      if (file_put_contents("data.json", json_encode($this->data))){
-        $this->log('Data file created');
+      if (file_put_contents($this->userDataPath . "data.json", json_encode($this->data ,JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT))){
+        
       }
       else {
-        $this->log('Error creating data file');
+        // error
       }
     }
 
-    public function log ($log) {
-      $date = date('d-m-Y-H-i-s');
-      $content = file_get_contents($this->logsPath . 'logs.txt');
-      $content .= file_put_contents($this->logsPath . 'logs.txt', $date . $log);
-    }
+    public function getSelectedProjectResp ($project) {
 
+    }
+    public function getSelectedResearchResp ($research) {
+      
+    }
   }
 ?>

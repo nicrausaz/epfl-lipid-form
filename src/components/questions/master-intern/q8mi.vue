@@ -2,7 +2,7 @@
   <div id="q8mi">
     <h3>{{ question }}</h3>
     <h4>{{ description }}</h4>
-    <el-upload class="upload-demo" drag action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList" multiple>
+    <el-upload drag action="http://lipid-form.local/fileUpload.php" :on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList" multiple>
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">Drop file here or
         <em>click to upload</em>

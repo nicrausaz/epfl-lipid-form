@@ -1,6 +1,6 @@
 <template>
   <div id="errorPopup">
-    <el-dialog title="Some errors happened" :visible.sync="hasError" size="tiny">
+    <el-dialog title="Some errors happened" :visible.sync="visible" size="tiny">
       <span>{{ hasError }}</span>
       <span>{{ errors }}</span>
       <span slot="footer" class="dialog-footer">
@@ -13,6 +13,11 @@
 <script>
 export default {
   name: 'errorPopup',
-  props: ['hasError', 'errors']
+  props: ['hasError', 'errors'],
+  data () {
+    return {
+      visible: false
+    }
+  }
 }
 </script>

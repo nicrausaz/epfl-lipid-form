@@ -5,7 +5,7 @@
 		public $postedData;
 		public $errors = [];
 
-		function __construct($data) {
+		function __construct ($data) {
 				$this->postedData = $data;
 				$this->mainCheck();
         print_r($this->returnStatus());
@@ -72,6 +72,8 @@
 			}
 
       if (!empty($this->postedData['data']['personalInfos'])){
+				$this->checkEmail($this->postedData['data']['personalInfos']['email']);
+				$this->checkNamesChars();
         foreach ($this->postedData['data']['personalInfos'] as $key => $value) {
           if ($value == '') {
             $this->errors[$key] = 'Question7: Missing some personal informations';
@@ -85,6 +87,8 @@
 
 		private function checkPpRequired () {
       if (!empty($this->postedData['data']['personalInfos'])){
+				$this->checkEmail($this->postedData['data']['personalInfos']['email']);
+				$this->checkNamesChars();
         foreach ($this->postedData['data']['personalInfos'] as $key => $value) {
           if ($key !== 'personalURL') {
             if ($value == '') {
@@ -137,17 +141,33 @@
 			}
 		}
 
+		private function checkNamesChars () {
+				$this->postedData['data']['personalInfos']['name'] = $this->checkSpecialChars($this->postedData['data']['personalInfos']['name']);
+				$this->postedData['data']['personalInfos']['familyName'] = $this->checkSpecialChars($this->postedData['data']['personalInfos']['familyName']);
+		}
+
 		private function checkSelectedJob () {
 			return is_null($this->postedData['selectedJob']) || $this->postedData['selectedJob'] === '' ? false : true;
 		}
 
+		private function checkEmail ($email) {
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+					$this->errors['email'] = 'Invalid email';
+			}
+		}
+
+		private function checkSpecialChars ($toCheck) {
+			return preg_replace('/[^A-Za-z0-9\-]/', '', $toCheck);
+		}
+
     public function returnStatus () {
       if (count($this->errors) > 0) {
-        return json_encode($this->errors);
+        return json_encode($this->errors); 
       }
       else {
         // return json_encode([]);
 				$DataManipulator = new DataManipulator($this->postedData);
+				$DataManipulator->createFolders();
       }
     }
   }
