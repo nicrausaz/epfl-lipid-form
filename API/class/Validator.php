@@ -167,7 +167,6 @@
       else {
         // return json_encode([]);
 				$DataManipulator = new DataManipulator($this->postedData);
-				$DataManipulator->createFolders();
       }
     }
   }

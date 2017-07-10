@@ -98,7 +98,9 @@ export default {
     setPersonalInfos (infos) {
       this.formDataMi.personalInfos = infos
     },
-    setFiles () { },
+    setFiles (files) {
+      this.formDataMi.files = files
+    },
     emitData () {
       this.$emit('miForm', this.formDataMi)
     }
