@@ -1,16 +1,19 @@
 <?php
+  require_once('class/MailSender.php');
+
   class DataManipulator {
     private $data = [];
     private $dataPath = "D:/data/";
-    private $logsPath = "D:/php_logs/";
     private $userDataPath = '';
     private $userFullName = '';
     private $recipients = [];
+    public $MailSender;
 
     function __construct ($data) {
       $this->data = $data;
       $this->userFullName = $this->data['data']['personalInfos']['name'] . $this->data['data']['personalInfos']['familyName'];
       $this->userDataPath = $this->dataPath . $this->userFullName .'/';
+      $this->MailSender = new MailSender();
       $this->createFolders();
     }
 
@@ -30,29 +33,30 @@
 
     private function writeDataFile () {
       if (file_put_contents($this->userDataPath . "data.json", json_encode($this->data ,JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT))){
-        $this->getResponsibles();
+        $this->MailSender->toApplicant($this->data['data']['personalInfos']['email']);
+
+        $this->mailProjectResponsibles();
+        
       }
       else {
         // error
       }
     }
 
-    private function getResponsibles () {
-      if ($this->data['job'] === 'Master' || $this->data['job'] === 'Internship') {
+    private function mailProjectResponsibles () {
+      if ($this->data['selectedJob'] === 'Master' || $this->data['selectedJob'] === 'Internship') {
         if ($this->data['data']['q3']['interest']) {
-          //array_push($this->recipients);
+          $this->MailSender->toProjectResp($this->data['data']['q3']['selectedProject'], $this->userDataPath);
+        }
+        if ($this->data['data']['q4']['interest']) {
+          $this->MailSender->toProjectResp($this->data['data']['q4']['selectedResearch'], $this->userDataPath);
         }
       }
       else {
-        $this->getSelectedResearchResp();
+        if ($this->data['data']['q6']['interest']) {
+          $this->MailSender->toProjectResp($this->data['data']['q6']['selectedProject'], $this->userDataPath);
+        }
       }
-    }
-
-    private function getSelectedProjectResp ($project) {
-
-    }
-    private function getSelectedResearchResp ($research) {
-      
     }
   }
 ?>
