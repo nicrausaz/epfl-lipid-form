@@ -5,7 +5,5 @@
   require("class/Validator.php");
 
   $postedData = json_decode(file_get_contents('php://input'), true);
-  $postedFiles = $postedData['data']['files'];
-  print_r($postedFiles);
-  //$Validator = new Validator($postedData);
+  $Validator = new Validator($postedData);
 ?>

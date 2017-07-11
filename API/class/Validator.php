@@ -3,10 +3,12 @@
 
   class Validator {
 		public $postedData;
+		public $postedFiles;
 		public $errors = [];
 
 		function __construct ($data) {
 				$this->postedData = $data;
+				$this->postedFiles = $this->postedData['data']['files'];
 				$this->mainCheck();
         print_r($this->returnStatus());
 		}

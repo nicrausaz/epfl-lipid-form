@@ -17,10 +17,21 @@ export default {
   },
   methods: {
     getFiles () {
-      this.fileList = document.getElementById('uploader').files
-      if (this.fileList.length !== 0) {
-        this.$message(this.fileList.length + 'file(s) selected')
-      }
+      // console.dir(document.getElementById('uploader').files)
+      // let fileList = document.getElementById('uploader').files
+      // fileList.push(this.fileList[0])
+      let list = Array.from(document.getElementById('uploader').files)
+      list.forEach((file) => {
+        this.fileList.push(file.name)
+      })
+      // test.push(document.getElementById('uploader').files[0])
+      // console.log(test)
+      // for (let i = 0; i < this.fileList.length; i++) {
+      //   this.fileList.push(this.fileList[i])
+      // }
+      // if (this.fileList.length !== 0) {
+      //   this.$message(this.fileList.length + 'file(s) selected')
+      // }
       this.$emit('changeFile', this.fileList)
     }
   }
