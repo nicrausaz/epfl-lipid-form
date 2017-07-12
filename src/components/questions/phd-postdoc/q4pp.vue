@@ -8,7 +8,7 @@
       <el-rate v-model="ratings.ratingEnergy" :colors="colors" @change="emitStars"></el-rate>
     </div>
   
-    Confort:
+    Comfort:
     <div class="rate">
       <el-rate v-model="ratings.ratingComfort" :colors="colors" @change="emitStars"></el-rate>
     </div>

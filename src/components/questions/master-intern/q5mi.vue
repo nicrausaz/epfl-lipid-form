@@ -3,7 +3,7 @@
     <h3>{{ question }}</h3>
     <h4>{{ description }}</h4>
     <div class="rate">Energy:<el-rate v-model="ratings.ratingEnergy" :colors="colors" @change="emitStars" ></el-rate></div>
-    <div class="rate">Confort:<el-rate v-model="ratings.ratingComfort" :colors="colors" @change="emitStars"></el-rate></div>
+    <div class="rate">Comfort:<el-rate v-model="ratings.ratingComfort" :colors="colors" @change="emitStars"></el-rate></div>
     <div class="rate">Perception:<el-rate v-model="ratings.ratingPerception" :colors="colors" @change="emitStars"></el-rate></div>
     <div class="rate">Health:<el-rate v-model="ratings.ratingHealth" :colors="colors" @change="emitStars"></el-rate></div>
   </div>

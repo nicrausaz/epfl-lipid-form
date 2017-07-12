@@ -2,7 +2,7 @@
   <div id="header">
     <el-row :gutter="20">
       <el-col :span="6" >
-        <img src="static/Logo_EPFL.svg" class="images" draggable="false">
+        <img src="static/epfl.png" class="images" draggable="false">
       </el-col>
       <el-col :span="6" :offset="12">
         <img src="static/LIPID.png" class="images" draggable="false">

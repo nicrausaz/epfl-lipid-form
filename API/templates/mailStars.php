@@ -1,7 +1,7 @@
 <?php
     $subject = 'New LIPID appliance';
     $message = "Hi," ."\n\n". 
-    "Someone just applied to a $$$$$$JOB  position at LIPID." . "\n\n".
+    "Someone just applied to a $job  position at LIPID." . "\n\n".
     "He/she mentioned $$$$$$energy as their area of interest ($$numStars)";
 
     $message .= "$PATH";

@@ -34,9 +34,8 @@
     private function writeDataFile () {
       if (file_put_contents($this->userDataPath . "data.json", json_encode($this->data ,JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT))){
         $this->MailSender->toApplicant($this->data['data']['personalInfos']['email']);
-
         $this->mailProjectResponsibles();
-        
+        $this->mailStarRatings();
       }
       else {
         // error
@@ -57,6 +56,26 @@
           $this->MailSender->toProjectResp($this->data['data']['q6']['selectedProject'], $this->userDataPath);
         }
       }
+    }
+
+    private function mailStarRatings () {
+      if ($this->data['selectedJob'] === 'Master' || $this->data['selectedJob'] === 'Internship') {
+        $ratings = array(
+          'Energy' => $this->data['data']['q5']['ratings']['ratingEnergy'],
+          'Comfort' => $this->data['data']['q5']['ratings']['ratingComfort'],
+          'Perception' => $this->data['data']['q5']['ratings']['ratingPerception'],
+          'Health' => $this->data['data']['q5']['ratings']['ratingHealth']
+        );
+      }
+      else {
+        $ratings = array(
+          'Energy' => $this->data['data']['q4']['ratings']['ratingEnergy'],
+          'Comfort' => $this->data['data']['q4']['ratings']['ratingComfort'],
+          'Perception' => $this->data['data']['q4']['ratings']['ratingPerception'],
+          'Health' => $this->data['data']['q4']['ratings']['ratingHealth']
+        );
+      }
+      $this->MailSender->getRecipients($ratings,  $this->data['selectedJob'], $this->userDataPath);
     }
   }
 ?>

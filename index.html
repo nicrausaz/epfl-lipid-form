@@ -6,6 +6,12 @@
   <link rel="shortcut icon" type="image/x-icon" href="//static.epfl.ch/v0.23.1/favicon.ico" />
   <link rel="icon" type="image/png" href="//static.epfl.ch/v0.23.1/favicon.png" />
   <noscript>Please turn on Javascript to use this service!</noscript>
+  <script>
+    if(navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && navigator.userAgent && !navigator.userAgent.match('CriOS')) {
+      alert("This service doesn't support Safari. \n Please use another web browser like Chrome, Firefox or Opera");
+      window.location.replace('http://lipid.epfl.ch/')
+    }
+  </script>
   <title>EPFL-LIPID</title>
 </head>
 
