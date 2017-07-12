@@ -15,7 +15,7 @@
 
 		private function mainCheck ()  {
 			if ($this->checkSelectedJob()) {
-        
+
         if (!empty($this->postedData['data'])) {
 
           if ($this->postedData['selectedJob'] == 'Master' || $this->postedData['selectedJob'] == 'Internship') {
