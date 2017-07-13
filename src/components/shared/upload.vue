@@ -1,8 +1,8 @@
 <template>
   <div id="upload">
-    <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
+     <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
       <input type="file" id="uploader" placeholder="test" multiple @change="getFiles"></input>
-    </el-tooltip>
+    </el-tooltip> 
     <pre>{{fileList}}</pre>
   </div>
 </template>

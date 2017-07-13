@@ -7,7 +7,6 @@
       <ppForm v-if="isPhd || isPostDoc" @ppForm="setData"></ppForm>
       <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
       <pre>{{ errors }}</pre>
-      <!--<popup :show="hasError" :errors="errors"></popup>-->
       <pre>{{ formData }}</pre>
     </div>
   </div>
@@ -18,7 +17,6 @@ import epflHeader from '@/components/layout/Epflheader'
 import JobSelector from '@/components/JobSelector'
 import miForm from '@/components/layout/miForm'
 import ppForm from '@/components/layout/ppForm'
-import popup from '@/components/shared/popup'
 
 export default {
   name: 'MainForm',
@@ -38,12 +36,28 @@ export default {
     setData (data) {
       this.formData.data = data
     },
+    getErrorsContent () {
+      let content = ''
+      this.errors.forEach((element) => {
+        content += element + '\n\n'
+      })
+      return content
+    },
     submit () {
       this.$http.post('http://lipid-form.local', this.formData)
       .then(response => {
-        this.errors = Object.values(response.data).toString()
+        this.errors = Object.values(response.data).toString().split(',')
+        if (this.errors.length > 0) {
+          this.getErrorsContent()
+          let content = this.getErrorsContent()
+          this.notifyErrors(content)
+        }
       })
-      .catch(e => {})
+    },
+    notifyErrors (content) {
+      this.$alert(content, 'Some errors happened', {
+        confirmButtonText: 'Back'
+      })
     }
   },
   computed: {
@@ -58,17 +72,13 @@ export default {
     },
     isPostDoc () {
       return this.formData.selectedJob === 'PostDoc'
-    },
-    hasError () {
-      return this.errors.length > 0
     }
   },
   components: {
     epflHeader,
     JobSelector,
     miForm,
-    ppForm,
-    popup
+    ppForm
   }
 }
 </script>

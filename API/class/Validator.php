@@ -8,7 +8,7 @@
 
 		function __construct ($data) {
 				$this->postedData = $data;
-				$this->postedFiles = $this->postedData['data']['files'];
+				//$this->postedFiles = $this->postedData['data']['files'];
 				$this->mainCheck();
         print_r($this->returnStatus());
 		}
@@ -78,7 +78,7 @@
 				$this->checkNamesChars();
         foreach ($this->postedData['data']['personalInfos'] as $key => $value) {
           if ($value == '') {
-            $this->errors[$key] = 'Question7: Missing some personal informations';
+            $this->errors[$key] = 'Question7: Missing ' . $key;
           }
 			  }
       }
@@ -94,7 +94,7 @@
         foreach ($this->postedData['data']['personalInfos'] as $key => $value) {
           if ($key !== 'personalURL') {
             if ($value == '') {
-              $this->errors[$key] = 'Question1: Missing some personal informations';
+              $this->errors[$key] = 'Question1: Missing ' . $key;
             }
           }
         }
