@@ -6,7 +6,9 @@
       <miForm v-if="isMaster || isInternship" @miForm="setData"></miForm>
       <ppForm v-if="isPhd || isPostDoc" @ppForm="setData"></ppForm>
       <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
-      <pre>{{ errors }}</pre>
+      <el-dialog title="Some errors happened" :visible.sync="dialogVisible">
+        <div v-for="error in errors" :key="error"><h3>{{error}}</h3></div>
+      </el-dialog>
       <pre>{{ formData }}</pre>
     </div>
   </div>
@@ -26,7 +28,8 @@ export default {
         selectedJob: '',
         data: []
       },
-      errors: []
+      errors: [],
+      dialogVisible: false
     }
   },
   methods: {
@@ -36,27 +39,13 @@ export default {
     setData (data) {
       this.formData.data = data
     },
-    getErrorsContent () {
-      let content = ''
-      this.errors.forEach((element) => {
-        content += element + '\n\n'
-      })
-      return content
-    },
     submit () {
       this.$http.post('http://lipid-form.local', this.formData)
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')
         if (this.errors.length > 0) {
-          this.getErrorsContent()
-          let content = this.getErrorsContent()
-          this.notifyErrors(content)
+          this.dialogVisible = true
         }
-      })
-    },
-    notifyErrors (content) {
-      this.$alert(content, 'Some errors happened', {
-        confirmButtonText: 'Back'
       })
     }
   },
