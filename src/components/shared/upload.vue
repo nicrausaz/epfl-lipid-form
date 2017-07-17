@@ -1,13 +1,15 @@
 <template>
   <div id="upload">
-     <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
+    <input type="file" id="uploader" placeholder="test" multiple @change="getFiles"></input>
+    <!-- <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
       <input type="file" id="uploader" placeholder="test" multiple @change="getFiles"></input>
-    </el-tooltip> 
+    </el-tooltip> -->
     <pre>{{fileList}}</pre>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'upload',
   data () {
@@ -17,21 +19,13 @@ export default {
   },
   methods: {
     getFiles () {
-      // console.dir(document.getElementById('uploader').files)
-      // let fileList = document.getElementById('uploader').files
-      // fileList.push(this.fileList[0])
-      let list = Array.from(document.getElementById('uploader').files)
-      list.forEach((file) => {
-        this.fileList.push(file.name)
+      this.fileList = []
+      let files = Array.from(document.getElementById('uploader').files)
+
+      files.forEach((file) => {
+        this.fileList.push({name: file.name, lastModified: file.lastModified, type: file.type, size: file.size, path: file.webkitRelativePath})
       })
-      // test.push(document.getElementById('uploader').files[0])
-      // console.log(test)
-      // for (let i = 0; i < this.fileList.length; i++) {
-      //   this.fileList.push(this.fileList[i])
-      // }
-      // if (this.fileList.length !== 0) {
-      //   this.$message(this.fileList.length + 'file(s) selected')
-      // }
+
       this.$emit('changeFile', this.fileList)
     }
   }
@@ -39,7 +33,7 @@ export default {
 </script>
 
 <style>
-#uploader {
+/* #uploader {
   display: block;
   position: relative;
   width: 300px;
@@ -71,5 +65,5 @@ export default {
   content: 'Select multiple files';
   line-height: 60px;
   border-radius: 5px;
-}
+} */
 </style>

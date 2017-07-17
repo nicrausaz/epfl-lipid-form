@@ -40,6 +40,7 @@ export default {
       this.formData.data = data
     },
     submit () {
+      console.log(this.formData.data.files)
       this.$http.post('http://lipid-form.local', this.formData)
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')

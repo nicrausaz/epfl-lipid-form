@@ -7,14 +7,17 @@
     private $userDataPath = '';
     private $userFullName = '';
     private $recipients = [];
+    private $files = [];
     public $MailSender;
 
     function __construct ($data) {
       $this->data = $data;
+      $this->files = $data['data']['files'];
       $this->userFullName = $this->data['data']['personalInfos']['name'] . $this->data['data']['personalInfos']['familyName'];
       $this->userDataPath = $this->dataPath . $this->userFullName .'/';
       $this->MailSender = new MailSender();
       $this->createFolders();
+      $this->uploadFiles();
     }
 
     private function createFolders () {
@@ -39,6 +42,12 @@
       }
       else {
         // error
+      }
+    }
+
+    private function uploadFiles () {
+      foreach ($this->files as $key => $value) {
+        echo($value);
       }
     }
 

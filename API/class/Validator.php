@@ -8,7 +8,6 @@
 
 		function __construct ($data) {
 				$this->postedData = $data;
-				//$this->postedFiles = $this->postedData['data']['files'];
 				$this->mainCheck();
         print_r($this->returnStatus());
 		}
@@ -17,6 +16,8 @@
 			if ($this->checkSelectedJob()) {
 
         if (!empty($this->postedData['data'])) {
+
+					$this->checkFiles();
 
           if ($this->postedData['selectedJob'] == 'Master' || $this->postedData['selectedJob'] == 'Internship') {
 					  $this->checkMiRequired();
@@ -35,6 +36,17 @@
       else {
         $this->errors['job'] = 'No job was selected';
       }
+		}
+
+		private function checkFiles () {
+			$this->postedFiles = $this->postedData['data']['files'];
+
+			if (count($this->postedData['data']['files']) < 1) {
+				$this->errors['files'] = 'No files were selected';
+			}
+			else {
+				// check format
+			}
 		}
 
 		private function checkMiRequired () {
@@ -167,7 +179,6 @@
         return json_encode($this->errors); 
       }
       else {
-        // return json_encode([]);
 				$DataManipulator = new DataManipulator($this->postedData);
       }
     }

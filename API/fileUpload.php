@@ -8,7 +8,7 @@
   $extension = strtolower(strrchr($file['name'], '.'));
   $validExt = ['.pdf'];
 
-  if(in_array($extension, $validExt)){
+  if(in_array($extension, $validExt)) {
     move_uploaded_file($file['tmp_name'], 'D:/test/' . rand(1, 1000) . '-' . $file['name']);
   }
 ?>
