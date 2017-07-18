@@ -23,19 +23,8 @@ export default {
 
       for (let i = 0; i < files.length; i++) {
         formData.append('file' + i, files[i])
-        // this.fileList.push(formData.get('file' + i))
       }
-
       this.fileList = formData
-
-      this.$http.post('http://lipid-form.local/fileUpload.php', this.fileList)
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-
       this.$emit('changeFile', this.fileList)
     }
   }

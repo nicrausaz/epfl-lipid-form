@@ -48,7 +48,6 @@ export default {
     return {
       formDataPp: {
         personalInfos: [],
-        files: [],
         q3: {
           answer: ''
         },
@@ -72,14 +71,17 @@ export default {
         q9: {
           answer: ''
         }
-      }
+      },
+      files: []
     }
   },
   methods: {
     setPersonalInfos (infos) {
       this.formDataPp.personalInfos = infos
     },
-    setFiles () { },
+    setFiles (files) {
+      this.files = files
+    },
     setQ3pp (answer) {
       this.formDataPp.q3.answer = answer
     },

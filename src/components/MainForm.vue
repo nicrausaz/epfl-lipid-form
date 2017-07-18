@@ -37,16 +37,19 @@ export default {
     setJob (job) {
       this.formData.selectedJob = job
     },
-    setData (data) {
+    setData (data, files) {
       this.formData.data = data
+      this.formData.files = files
     },
     submit () {
       let formData = new FormData()
-      let test = JSON.stringify(this.formData)
-      console.log(test)
-      formData.append('formData', test)
-      // formData.append('files', this.data)
-
+      let stringFormData = JSON.stringify(this.formData)
+      let i = 0
+      formData.append('formData', stringFormData)
+      for (let value of this.formData.files.values()) {
+        formData.append('file' + i, value)
+        i++
+      }
       this.$http.post('http://lipid-form.local', formData)
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')

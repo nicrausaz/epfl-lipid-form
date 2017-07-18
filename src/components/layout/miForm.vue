@@ -44,7 +44,6 @@ export default {
     return {
       formDataMi: {
         personalInfos: [],
-        files: [],
         q1: {
           choices: [],
           textOther: ''
@@ -67,7 +66,8 @@ export default {
           interest: '',
           text: ''
         }
-      }
+      },
+      files: []
     }
   },
   methods: {
@@ -99,10 +99,10 @@ export default {
       this.formDataMi.personalInfos = infos
     },
     setFiles (files) {
-      this.formDataMi.files = files
+      this.files = files
     },
     emitData () {
-      this.$emit('miForm', this.formDataMi)
+      this.$emit('miForm', this.formDataMi, this.files)
     }
   },
   components: {
