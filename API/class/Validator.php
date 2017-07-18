@@ -40,7 +40,7 @@
 
 		private function checkFiles () {
 			$this->postedFiles = $this->postedData['data']['files'];
-
+			print_r($this->postedFiles);
 			if (count($this->postedData['data']['files']) < 1) {
 				$this->errors['files'] = 'No files were selected';
 			}

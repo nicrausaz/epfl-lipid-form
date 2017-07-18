@@ -2,14 +2,13 @@
   <div id="upload">
     <input type="file" id="uploader" placeholder="test" multiple @change="getFiles"></input>
     <!-- <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
-      <input type="file" id="uploader" placeholder="test" multiple @change="getFiles"></input>
-    </el-tooltip> -->
+            <input type="file" id="uploader" placeholder="test" multiple @change="getFiles"></input>
+          </el-tooltip> -->
     <pre>{{fileList}}</pre>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'upload',
   data () {
@@ -19,12 +18,23 @@ export default {
   },
   methods: {
     getFiles () {
-      this.fileList = []
-      let files = Array.from(document.getElementById('uploader').files)
+      let formData = new FormData()
+      let files = document.getElementById('uploader').files
 
-      files.forEach((file) => {
-        this.fileList.push({name: file.name, lastModified: file.lastModified, type: file.type, size: file.size, path: file.webkitRelativePath})
-      })
+      for (let i = 0; i < files.length; i++) {
+        formData.append('file' + i, files[i])
+        // this.fileList.push(formData.get('file' + i))
+      }
+
+      this.fileList = formData
+
+      this.$http.post('http://lipid-form.local/fileUpload.php', this.fileList)
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
 
       this.$emit('changeFile', this.fileList)
     }

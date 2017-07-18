@@ -26,7 +26,8 @@ export default {
     return {
       formData: {
         selectedJob: '',
-        data: []
+        data: [],
+        files: []
       },
       errors: [],
       dialogVisible: false
@@ -40,8 +41,13 @@ export default {
       this.formData.data = data
     },
     submit () {
-      console.log(this.formData.data.files)
-      this.$http.post('http://lipid-form.local', this.formData)
+      let formData = new FormData()
+      let test = JSON.stringify(this.formData)
+      console.log(test)
+      formData.append('formData', test)
+      // formData.append('files', this.data)
+
+      this.$http.post('http://lipid-form.local', formData)
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')
         if (this.errors.length > 0) {
