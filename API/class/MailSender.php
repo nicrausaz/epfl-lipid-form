@@ -17,13 +17,13 @@
 
     public function getRecipients ($ratings, $job, $path) {
       foreach ($ratings as $key => $value) {
-        $email = strtolower($this->getMailingList($key, $value));
+        $email = strtolower($this->getMailingList($key));
         $this->toStarsRatings($email, $job, $path, $key, $value);
       }
     }
 
-    public function getMailingList ($key, $value) {
-      return $email = 'lipid-' . $key . $value . '@groupes.epfl.ch';
+    public function getMailingList ($key) {
+      return $email =  $key . '.lipid@groupes.epfl.ch';
     }
   }
 ?>

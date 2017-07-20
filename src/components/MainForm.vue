@@ -41,15 +41,25 @@ export default {
       this.formData.data = data
       this.formData.files = files
     },
-    submit () {
+    createObjFormData () {
       let formData = new FormData()
       let stringFormData = JSON.stringify(this.formData)
       let i = 0
+
       formData.append('formData', stringFormData)
+
+      if (this.formData.files) {
+        console.log('empty formData')
+      }
+
       for (let value of this.formData.files.values()) {
         formData.append('file' + i, value)
         i++
       }
+      return formData
+    },
+    submit () {
+      let formData = this.createObjFormData()
       this.$http.post('http://lipid-form.local', formData)
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')

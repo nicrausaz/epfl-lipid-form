@@ -1,7 +1,7 @@
 <?php
     $subject = 'New LIPID appliance';
     $message = "Hi," ."\n\n". 
-    "Someone just applied to a $job position at LIPID." . "\n\n".
+    "Someone just applied to a $job position at LIPID." . "\n\n". $to .
     "He/she mentioned $key as their area of interest ($value stars)" . "\n\n";
 
     $message .= "Find data here: " . $path;

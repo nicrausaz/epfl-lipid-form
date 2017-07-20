@@ -10,9 +10,9 @@
     private $files = [];
     public $MailSender;
 
-    function __construct ($data) {
+    function __construct ($data, $files) {
       $this->data = $data;
-      $this->files = $data['data']['files'];
+      $this->files = $files;
       $this->userFullName = $this->data['data']['personalInfos']['name'] . $this->data['data']['personalInfos']['familyName'];
       $this->userDataPath = $this->dataPath . $this->userFullName .'/';
       $this->MailSender = new MailSender();
@@ -47,7 +47,7 @@
 
     private function uploadFiles () {
       foreach ($this->files as $key => $value) {
-        echo($value);
+        print_r($value);
       }
     }
 
@@ -69,20 +69,30 @@
 
     private function mailStarRatings () {
       if ($this->data['selectedJob'] === 'Master' || $this->data['selectedJob'] === 'Internship') {
-        $ratings = array(
-          'Energy' => $this->data['data']['q5']['ratings']['ratingEnergy'],
-          'Comfort' => $this->data['data']['q5']['ratings']['ratingComfort'],
-          'Perception' => $this->data['data']['q5']['ratings']['ratingPerception'],
-          'Health' => $this->data['data']['q5']['ratings']['ratingHealth']
-        );
+        if (!is_null($this->data['data']['q5']['ratings']['ratingEnergy'])) {
+          $ratings = array(
+            'Energy' => $this->data['data']['q5']['ratings']['ratingEnergy'],
+            'Comfort' => $this->data['data']['q5']['ratings']['ratingComfort'],
+            'Perception' => $this->data['data']['q5']['ratings']['ratingPerception'],
+            'Health' => $this->data['data']['q5']['ratings']['ratingHealth']
+          );
+        }
+        else {
+          $ratings = array('Energy' => 0,'Comfort' => 0,'Perception' => 0,'Health' => 0 );
+        }
       }
       else {
-        $ratings = array(
-          'Energy' => $this->data['data']['q4']['ratings']['ratingEnergy'],
-          'Comfort' => $this->data['data']['q4']['ratings']['ratingComfort'],
-          'Perception' => $this->data['data']['q4']['ratings']['ratingPerception'],
-          'Health' => $this->data['data']['q4']['ratings']['ratingHealth']
-        );
+        if (!is_null($this->data['data']['q4']['ratings']['ratingEnergy'])) {
+          $ratings = array(
+            'Energy' => $this->data['data']['q4']['ratings']['ratingEnergy'],
+            'Comfort' => $this->data['data']['q4']['ratings']['ratingComfort'],
+            'Perception' => $this->data['data']['q4']['ratings']['ratingPerception'],
+            'Health' => $this->data['data']['q4']['ratings']['ratingHealth']
+          );
+        }
+        else {
+          $ratings = array('Energy' => 0,'Comfort' => 0,'Perception' => 0,'Health' => 0 );
+        }
       }
       $this->MailSender->getRecipients($ratings,  $this->data['selectedJob'], $this->userDataPath);
     }

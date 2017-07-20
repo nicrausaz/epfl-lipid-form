@@ -40,8 +40,7 @@
 		}
 
 		private function checkFiles () {
-			print_r($this->postedFiles);
-			if (count($this->postedData['data']['files']) < 1) {
+			if (count($this->postedFiles) < 1) {
 				$this->errors['files'] = 'No files were selected';
 			}
 			else {
@@ -179,7 +178,7 @@
         return json_encode($this->errors); 
       }
       else {
-				$DataManipulator = new DataManipulator($this->postedData);
+				$DataManipulator = new DataManipulator($this->postedData, $this->postedFiles);
       }
     }
   }
