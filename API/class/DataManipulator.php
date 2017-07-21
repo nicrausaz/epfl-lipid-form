@@ -5,6 +5,7 @@
     private $data = [];
     private $dataPath = "D:/data/";
     private $userDataPath = '';
+    private $userFilesPath = '';
     private $userFullName = '';
     private $recipients = [];
     private $files = [];
@@ -15,15 +16,18 @@
       $this->files = $files;
       $this->userFullName = $this->data['data']['personalInfos']['name'] . $this->data['data']['personalInfos']['familyName'];
       $this->userDataPath = $this->dataPath . $this->userFullName .'/';
+      $this->userFilesPath = $this->userDataPath . 'files/';
       $this->MailSender = new MailSender();
       $this->createFolders();
-      $this->uploadFiles();
     }
 
     private function createFolders () {
       if (!is_dir($this->userDataPath)) {
         if (mkdir($this->userDataPath, 0777, true)) {
           $this->writeDataFile();
+        }
+        if (mkdir($this->userFilesPath, 0777, true)) {
+          $this->uploadFiles();
         }
         else {
           // error
@@ -46,8 +50,13 @@
     }
 
     private function uploadFiles () {
-      foreach ($this->files as $key => $value) {
-        print_r($value);
+      foreach ($this->files as $file) {
+        if (move_uploaded_file($file['tmp_name'], $this->userFilesPath . $file['name'])) {
+      
+        }
+        else {
+          // error
+        }
       }
     }
 
@@ -69,7 +78,7 @@
 
     private function mailStarRatings () {
       if ($this->data['selectedJob'] === 'Master' || $this->data['selectedJob'] === 'Internship') {
-        if (!is_null($this->data['data']['q5']['ratings']['ratingEnergy'])) {
+        if (isset($this->data['data']['q5']['ratings']['ratingEnergy'])) {
           $ratings = array(
             'Energy' => $this->data['data']['q5']['ratings']['ratingEnergy'],
             'Comfort' => $this->data['data']['q5']['ratings']['ratingComfort'],
@@ -82,7 +91,7 @@
         }
       }
       else {
-        if (!is_null($this->data['data']['q4']['ratings']['ratingEnergy'])) {
+        if (isset($this->data['data']['q4']['ratings']['ratingEnergy'])) {
           $ratings = array(
             'Energy' => $this->data['data']['q4']['ratings']['ratingEnergy'],
             'Comfort' => $this->data['data']['q4']['ratings']['ratingComfort'],

@@ -10,7 +10,7 @@
 				$this->postedData = $data;
 				$this->postedFiles = $files;
 				$this->mainCheck();
-        print_r($this->returnStatus());
+        $this->returnStatus();
 		}
 
 		private function mainCheck ()  {
@@ -44,7 +44,17 @@
 				$this->errors['files'] = 'No files were selected';
 			}
 			else {
-				// check format
+				foreach ($this->postedFiles as $file) {
+					$path_parts = pathinfo($file['name']);
+					$fileExt = $path_parts['extension'];
+
+					if (!$fileExt === 'pdf') {
+						$this->errors['files'] = 'Files must be PDF only';
+					}
+					else {
+						$file['name'] = $this->checkSpecialChars($file['name']);
+					}
+				}
 			}
 		}
 
@@ -175,7 +185,7 @@
 
     public function returnStatus () {
       if (count($this->errors) > 0) {
-        return json_encode($this->errors); 
+        print_r(json_encode($this->errors)); 
       }
       else {
 				$DataManipulator = new DataManipulator($this->postedData, $this->postedFiles);

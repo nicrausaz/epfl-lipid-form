@@ -9,6 +9,7 @@
       <el-dialog title="Some errors happened" :visible.sync="dialogVisible">
         <div v-for="error in errors" :key="error"><h3>{{error}}</h3></div>
       </el-dialog>
+      <pre>{{ errors }}</pre>
       <pre>{{ formData }}</pre>
     </div>
   </div>
@@ -48,10 +49,6 @@ export default {
 
       formData.append('formData', stringFormData)
 
-      if (this.formData.files) {
-        console.log('empty formData')
-      }
-
       for (let value of this.formData.files.values()) {
         formData.append('file' + i, value)
         i++
@@ -65,6 +62,8 @@ export default {
         this.errors = Object.values(response.data).toString().split(',')
         if (this.errors.length > 0) {
           this.dialogVisible = true
+        } else {
+          window.location.replace('https://google.ch')
         }
       })
     }

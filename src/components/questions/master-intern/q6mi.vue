@@ -1,8 +1,8 @@
 <template>
-  <div id="q6mi">
+  <div id="q6mi" @change="emitAnswer">
     <h3>{{ question }}</h3>
     <el-switch v-model="showText" on-text="Yes" off-text="No" @change="emitAnswer"></el-switch>
-    <el-input v-if="showText" type="textarea" autosize placeholder="Please type" id="textBox" v-model="answerText"  @change="emitAnswer"></el-input>
+    <el-input v-if="showText" type="textarea" autosize placeholder="Please type" id="textBox" v-model="answerText" @change="emitAnswer"></el-input>
   </div>
 </template>
 
@@ -19,6 +19,9 @@ export default {
   },
   methods: {
     emitAnswer () {
+      if (!this.showText) {
+        this.answerText = ''
+      }
       this.$emit('q6mi', this.showText, this.answerText)
     }
   }

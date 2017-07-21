@@ -18,7 +18,9 @@
     public function getRecipients ($ratings, $job, $path) {
       foreach ($ratings as $key => $value) {
         $email = strtolower($this->getMailingList($key));
-        $this->toStarsRatings($email, $job, $path, $key, $value);
+        if ($value !== 0) {
+          $this->toStarsRatings($email, $job, $path, $key, $value);
+        }
       }
     }
 
