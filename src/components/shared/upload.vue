@@ -1,8 +1,11 @@
 <template>
   <div id="upload">
-    <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
-        <input type="file" id="uploader" multiple @change="getFiles"></input>
-    </el-tooltip>
+    <label id="uploaderLabel">
+	      <input type="file" id="uploader" multiple @change="getFiles"></input>
+    </label>
+    <!-- <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
+      
+    </el-tooltip> -->
   </div>
 </template>
 
@@ -15,6 +18,11 @@ export default {
     }
   },
   methods: {
+    btnClick () {
+      console.log('click')
+      console.log(document.getElementById('uploader'))
+      document.getElementById('uploader').click()
+    },
     getFiles () {
       let formData = new FormData()
       let files = document.getElementById('uploader').files
@@ -30,37 +38,25 @@ export default {
 </script>
 
 <style>
-/* #uploader {
-  display: block;
-  position: relative;
-  width: 300px;
-  cursor: pointer;
-  border: 0;
-  height: 60px;
-  border-radius: 5px;
-  outline: 0;
+#uploader {
+  visibility: hidden;
+	width: 100px
 }
 
-#uploader:hover:after {
-  background: rgb(238, 126, 51);
+#uploaderLabel {
+	display: inline-block;
+	position: relative;
 }
 
-#uploader:after {
-  transition: 200ms all ease;
-  border-bottom: 3px solid rgba(0, 0, 0, .2);
-  background: #ea5e00;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, .2);
-  color: #fff;
-  font-size: 20px;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  content: 'Select multiple files';
-  line-height: 60px;
-  border-radius: 5px;
-} */
+#uploaderLabel:before {
+	content: 'Choose Files';
+	display: block;
+	background: #ea5e00;
+	padding: 15px 20px;
+	cursor: pointer;
+  color: white;
+  border-radius: 4px;
+	text-align: center;
+	font-size: 14pt;
+}
 </style>
