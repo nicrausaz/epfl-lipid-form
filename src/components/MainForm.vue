@@ -42,16 +42,22 @@ export default {
       this.formData.data = data
       this.formData.files = files
     },
+    popupMissingFile () {
+      console.log('missing file')
+    },
     createObjFormData () {
       let formData = new FormData()
       let stringFormData = JSON.stringify(this.formData)
       let i = 0
 
       formData.append('formData', stringFormData)
-
-      for (let value of this.formData.files.values()) {
-        formData.append('file' + i, value)
-        i++
+      if (this.formData.files.length !== 0) {
+        for (let value of this.formData.files.values()) {
+          formData.append('file' + i, value)
+          i++
+        }
+      } else {
+        this.popupMissingFile()
       }
       return formData
     },

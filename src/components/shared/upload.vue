@@ -1,11 +1,10 @@
 <template>
   <div id="upload">
-    <label id="uploaderLabel">
-	      <input type="file" id="uploader" multiple @change="getFiles"></input>
-    </label>
-    <!-- <el-tooltip class="item" effect="dark" content="PDF Only" placement="right">
-      
-    </el-tooltip> -->
+    <el-tooltip class="item" effect="dark" content="PDF Only" placement="top">
+      <label id="uploaderLabel">
+        <input type="file" id="uploader" multiple @change="getFiles"></input>
+      </label>
+    </el-tooltip>
   </div>
 </template>
 
@@ -18,20 +17,21 @@ export default {
     }
   },
   methods: {
-    btnClick () {
-      console.log('click')
-      console.log(document.getElementById('uploader'))
-      document.getElementById('uploader').click()
-    },
     getFiles () {
       let formData = new FormData()
       let files = document.getElementById('uploader').files
-
       for (let i = 0; i < files.length; i++) {
         formData.append('file' + i, files[i])
       }
       this.fileList = formData
+      this.popupNewFile()
       this.$emit('changeFile', this.fileList)
+    },
+    popupNewFile () {
+      this.$message({
+        message: 'File(s) added',
+        type: 'success'
+      })
     }
   }
 }
@@ -40,23 +40,23 @@ export default {
 <style>
 #uploader {
   visibility: hidden;
-	width: 100px
+  width: 100px
 }
 
 #uploaderLabel {
-	display: inline-block;
-	position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 #uploaderLabel:before {
-	content: 'Choose Files';
-	display: block;
-	background: #ea5e00;
-	padding: 15px 20px;
-	cursor: pointer;
+  content: 'Choose Files';
+  display: block;
+  background: #ea5e00;
+  padding: 15px 20px;
+  cursor: pointer;
   color: white;
   border-radius: 4px;
-	text-align: center;
-	font-size: 14pt;
+  text-align: center;
+  font-size: 14pt;
 }
 </style>

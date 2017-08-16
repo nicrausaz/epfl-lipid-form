@@ -4,7 +4,7 @@
       <q1pp @q1pp="setPersonalInfos" slot="question"></q1pp>
     </question-wrapper>
     <question-wrapper>
-      <q2pp @q1pp="setFiles" slot="question"></q2pp>
+      <q2pp @q2pp="setFiles" slot="question"></q2pp>
     </question-wrapper>
     <question-wrapper>
       <q3pp @q3pp="setQ3pp" slot="question"></q3pp>
@@ -106,7 +106,7 @@ export default {
       this.formDataPp.q9.answer = answer
     },
     emitData () {
-      this.$emit('ppForm', this.formDataPp)
+      this.$emit('ppForm', this.formDataPp, this.files)
     }
   },
   components: {
