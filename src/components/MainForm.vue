@@ -42,12 +42,6 @@ export default {
       this.formData.data = data
       this.formData.files = files
     },
-    popupMissingFile () {
-      this.$message({
-        message: 'Please select on file at least',
-        type: 'error'
-      })
-    },
     createObjFormData () {
       let formData = new FormData()
       let stringFormData = JSON.stringify(this.formData)
@@ -59,8 +53,6 @@ export default {
           formData.append('file' + i, value)
           i++
         }
-      } else {
-        this.popupMissingFile()
       }
       return formData
     },
