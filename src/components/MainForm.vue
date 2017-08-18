@@ -43,7 +43,10 @@ export default {
       this.formData.files = files
     },
     popupMissingFile () {
-      console.log('missing file')
+      this.$message({
+        message: 'Please select on file at least',
+        type: 'error'
+      })
     },
     createObjFormData () {
       let formData = new FormData()
@@ -65,6 +68,7 @@ export default {
       let formData = this.createObjFormData()
       this.$http.post('http://lipid-form.local', formData)
       .then(response => {
+        console.log(Object.values(response.data).toString().split(','))
         this.errors = Object.values(response.data).toString().split(',')
         if (this.errors.length > 0) {
           this.dialogVisible = true
@@ -101,7 +105,7 @@ export default {
 #MainForm {
   max-width: 1100px;
   margin: auto;
-  background-color: #F0F8FF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #content {
   padding: 25px;
