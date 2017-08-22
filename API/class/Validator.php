@@ -46,9 +46,8 @@
 			else {
 				foreach ($this->postedFiles as $file) {
 					$path_parts = pathinfo($file['name']);
-					$fileExt = $path_parts['extension'];
 
-					if (!$fileExt === 'pdf') {
+					if ($path_parts['extension'] !== 'pdf') {
 						$this->errors['files'] = 'Files must be PDF only';
 					}
 					else {

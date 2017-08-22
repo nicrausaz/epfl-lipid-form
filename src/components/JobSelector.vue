@@ -1,10 +1,10 @@
 <template>
   <div id="jobSelector">
-    <el-row type="flex" justify="space-around">
-      <el-col :span="8" v-for="job in jobs" :key="job">
+    <el-row type="flex" justify="space-around" style="padding-left: ">
+      <el-col :span="6" v-for="job in jobs" :key="job">
         <el-card :body-style="{ padding: '0px' }" class="cards">
           <img draggable="false" class="image" :src="job.img" @click="setSelectedJob(job.name)">
-            <div class="cardTitle">{{ job.name }}</div>
+          <div class="cardTitle">{{ job.name }}</div>
         </el-card>
       </el-col>
     </el-row>
@@ -39,21 +39,23 @@ export default {
 <style scoped>
 .cards {
   cursor: pointer;
-  /* background-color: #ea5e00; */
-  -webkit-user-select: none;    
+  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
   width: 200px;
 }
+
 .image {
   width: 200px;
   height: 180px;
 }
+
 #jobSelector {
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
+
 .cardTitle {
   text-align: center;
   font-size: 20px;

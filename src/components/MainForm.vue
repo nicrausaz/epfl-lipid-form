@@ -3,12 +3,18 @@
     <div id="content">
       <epflHeader></epflHeader>
       <JobSelector @job="setJob"></JobSelector>
+
       <miForm v-if="isMaster || isInternship" @miForm="setData"></miForm>
       <ppForm v-if="isPhd || isPostDoc" @ppForm="setData"></ppForm>
-      <el-button id="submitBtn" type="primary" size="large" v-if="isMaster || isInternship || isPhd || isPostDoc" @click="submit">Submit</el-button>
+      <h1 v-if="notSelected" id="unselectedDiv">Please select</h1>
+
+      <el-button id="submitBtn" type="primary" size="large" v-if="!notSelected" @click="submit">Submit</el-button>
       <el-dialog title="Some errors happened" :visible.sync="dialogVisible">
-        <div v-for="error in errors" :key="error"><h3>{{error}}</h3></div>
+        <div v-for="error in errors" :key="error">
+          <h3>{{error}}</h3>
+        </div>
       </el-dialog>
+
       <pre>{{ errors }}</pre>
       <pre>{{ formData }}</pre>
     </div>
@@ -60,12 +66,20 @@ export default {
       let formData = this.createObjFormData()
       this.$http.post('http://lipid-form.local', formData)
       .then(response => {
-        console.log(Object.values(response.data).toString().split(','))
         this.errors = Object.values(response.data).toString().split(',')
-        if (this.errors.length > 0) {
+        console.log(this.errors)
+        if (this.errors[0] === ' ') {
+          this.finish()
+        } else if (this.errors.length > 0) {
           this.dialogVisible = true
-        } else {
-          window.location.replace('https://google.ch')
+        }
+      })
+    },
+    finish () {
+      this.$alert('Thanks Message ... Redirecting', 'Postulation accepted !', {
+        confirmButtonText: 'Leave',
+        callback: action => {
+          window.location.replace('http://lipid.epfl.ch')
         }
       })
     }
@@ -82,6 +96,9 @@ export default {
     },
     isPostDoc () {
       return this.formData.selectedJob === 'PostDoc'
+    },
+    notSelected () {
+      return this.formData.selectedJob === ''
     }
   },
   components: {
@@ -99,10 +116,16 @@ export default {
   margin: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 #content {
   padding: 25px;
 }
+
 #submitBtn {
   margin-left: 90%
+}
+
+#unselectedDiv {
+  text-align: center;
 }
 </style>

@@ -5,7 +5,7 @@
         <img src="static/epfl.png" class="images" draggable="false">
       </el-col>
       <el-col :span="6" :offset="12">
-        <img src="static/LIPID.png" class="images" draggable="false">
+        <img src="static/LIPID.png" style="margin-top: 10px;" class="images" draggable="false">
       </el-col>
     </el-row>
     <h1 style="color: #ea5e00;">
