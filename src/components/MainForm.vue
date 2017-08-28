@@ -14,9 +14,6 @@
           <h3>{{error}}</h3>
         </div>
       </el-dialog>
-
-      <pre>{{ errors }}</pre>
-      <pre>{{ formData }}</pre>
     </div>
   </div>
 </template>
