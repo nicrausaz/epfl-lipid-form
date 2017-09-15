@@ -1,17 +1,17 @@
 {
     "researches": [
         {
-            "name": "PHPHPH",
+            "name": "test",
             "responsibleName": "Nicolas Crausaz",
             "responsibleMail": "nicolas.crausaz@epfl.ch"
         },
         {
-            "name": "VUEJS",
+            "name": "test",
             "responsibleName": "Nicolas Crausaz",
             "responsibleMail": "nicolas.crausaz@epfl.ch"
         },
         {
-            "name": "YOLOSWAG",
+            "name": "test",
             "responsibleName": "Nicolas Crausaz",
             "responsibleMail": "nicolas.crausaz@epfl.ch"
         }

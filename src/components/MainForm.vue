@@ -61,7 +61,7 @@ export default {
     },
     submit () {
       let formData = this.createObjFormData()
-      this.$http.post('http://lipid-form.local', formData)
+      this.$http.post('https://lipid-webform.epfl.ch/API/index.php', formData)
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')
         console.log(this.errors)

@@ -3,7 +3,7 @@
 
   class DataManipulator {
     private $data = [];
-    private $dataPath = "D:/data/";
+    private $dataPath = "\\\\enac1files.epfl.ch\\LIPID\\commun1\\01 Administration\\New_Applications\\";
     private $userDataPath = '';
     private $userFilesPath = '';
     private $userFullName = '';
@@ -15,7 +15,7 @@
       $this->data = $data;
       $this->files = $files;
       $this->userFullName = $this->data['data']['personalInfos']['name'] . $this->data['data']['personalInfos']['familyName'];
-      $this->userDataPath = $this->dataPath . $this->userFullName .'/';
+      $this->userDataPath = $this->dataPath . date("Y-n-j-") . $this->userFullName .'/';
       $this->userFilesPath = $this->userDataPath . 'files/';
       $this->MailSender = new MailSender();
       $this->createFolders();
