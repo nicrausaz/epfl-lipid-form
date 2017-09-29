@@ -31,14 +31,8 @@ export default {
   },
   methods: {
     emitInfos () {
-      // this.formatDate()
       this.$emit('q1pp', this.personalInfos)
     }
-    // formatDate () {
-    //   let date = new Date(this.personalInfos.projectDate)
-    //   console.log(this.personalInfos.projectDate = (date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()).toString())
-    //   // this.personalInfos.projectDate = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
-    // }
   }
 }
 </script>

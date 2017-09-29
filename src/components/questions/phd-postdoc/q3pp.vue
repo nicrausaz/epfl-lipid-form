@@ -17,7 +17,6 @@ export default {
   methods: {
     isValid () {
       if (this.answer.split(' ').length <= 150) {
-        // emit if valid
         this.$emit('q3pp', this.answer)
       } else {
         alert('TOO MUCH WORDS')

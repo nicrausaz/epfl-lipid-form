@@ -1,7 +1,7 @@
 <template>
   <div id="q7pp">
     <h3>{{ question }}</h3>
-    <div class="rate" v-for="rating in ratings">{{rating.name}}:
+    <div class="rate" v-for="rating in ratings" :key="rating.name">{{rating.name}}:
       <el-rate v-model="rating.rate" :colors="colors" @change="emitStars"></el-rate>
     </div>
     <el-row>

@@ -11,8 +11,6 @@ import App from './App'
 Vue.config.productionTip = false
 Vue.use(ElementUI, { locale })
 
-// axios.defaults.headers.post['Content-Type'] = 'multipart/form-data'
-
 Vue.prototype.$http = axios
 
 /* eslint-disable no-new */

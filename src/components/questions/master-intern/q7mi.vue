@@ -48,11 +48,6 @@ export default {
     emitInfos () {
       this.$emit('q7mi', this.personalInfos)
     }
-  },
-  computed: {
-    formatDate () {
-      // TODO
-    }
   }
 }
 </script>

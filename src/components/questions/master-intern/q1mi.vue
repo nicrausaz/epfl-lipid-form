@@ -9,7 +9,6 @@
     <el-row>
       <el-col :span="12"><el-input v-if="hasOther" v-model="otherFieldVal" placeholder="Please specify" v-on:change="emitAnswers"></el-input></el-col>
     </el-row>
-    
   </div>
 </template>
 

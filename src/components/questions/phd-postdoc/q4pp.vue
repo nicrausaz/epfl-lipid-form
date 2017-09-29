@@ -7,22 +7,22 @@
     <div class="rate">
       <el-rate v-model="ratings.ratingEnergy" :colors="colors" @change="emitStars"></el-rate>
     </div>
-  
+
     Comfort:
     <div class="rate">
       <el-rate v-model="ratings.ratingComfort" :colors="colors" @change="emitStars"></el-rate>
     </div>
-  
+
     Perception:
     <div class="rate">
       <el-rate v-model="ratings.ratingPerception" :colors="colors" @change="emitStars"></el-rate>
     </div>
-  
+
     Health:
     <div class="rate">
       <el-rate v-model="ratings.ratingHealth" :colors="colors" @change="emitStars"></el-rate>
     </div>
-  
+
     <el-row>
       <el-col :span="2">Other:</el-col>
       <el-col :span="5">
@@ -30,7 +30,7 @@
       </el-col>
       </el-col>
     </el-row>
-  
+
     <div class="rate">
       <el-rate v-if="ratings.other.selected" v-model="ratings.other.rate" :colors="colors" @change="emitStars"></el-rate>
     </div>

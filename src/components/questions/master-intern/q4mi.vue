@@ -2,7 +2,7 @@
   <div id="q4mi">
     <h3>{{ question }}</h3>
     <el-switch v-model="showList" on-text="Yes" off-text="No" @change="setShowList"></el-switch>
-  
+
     <el-select v-if="showList" v-model="selectedResearch" placeholder="Choose" @change="emitAnswers">
       <el-option v-for="research in researches" :key="research.name" :value="research" :label="research.name">
         <span style="float: left">{{ research.name }}</span>
