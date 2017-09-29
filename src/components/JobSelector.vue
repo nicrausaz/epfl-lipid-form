@@ -2,7 +2,7 @@
   <div id="jobSelector">
     <el-row type="flex" justify="space-around" style="padding-left: ">
       <el-col :span="6" v-for="job in jobs" :key="job">
-        <el-card :body-style="{ padding: '0px' }" class="cards">
+        <el-card :body-style="{ padding: '0px' }" class="cards" v-bind:class="{ active: selectedJob === job.name }">
           <img draggable="false" class="image" :src="job.img" @click="setSelectedJob(job.name)">
           <div class="cardTitle">{{ job.name }}</div>
         </el-card>
@@ -45,6 +45,10 @@ export default {
   -o-user-select: none;
   user-select: none;
   width: 200px;
+}
+
+.active {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .image {

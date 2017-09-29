@@ -20,6 +20,7 @@
   color: black;
   height: 20px;
   margin-bottom: 30px;
+  font-family: Impact, "Arial Black", "DejaVu Sans", Arial, Helvetica, sans-serif;
 }
 
 .images {
