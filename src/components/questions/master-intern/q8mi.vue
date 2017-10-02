@@ -13,7 +13,7 @@ export default {
   name: 'q8mi',
   data () {
     return {
-      question: 'Please upload your CV and any other relevant documents',
+      question: '8. Please upload your CV and any other relevant documents',
       description: '(such as letter of motivation, scientific articles, work samples).'
     }
   },

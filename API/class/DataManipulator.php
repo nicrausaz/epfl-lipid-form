@@ -52,7 +52,6 @@
     private function uploadFiles () {
       foreach ($this->files as $file) {
         if (move_uploaded_file($file['tmp_name'], $this->userFilesPath . $file['name'])) {
-      
         }
         else {
           // error

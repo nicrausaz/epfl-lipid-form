@@ -18,7 +18,8 @@
 
 <style>
   #app {
-    font-family: 'Arial', Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

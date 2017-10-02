@@ -7,7 +7,6 @@
     <el-input v-model="personalInfos.university" placeholder="University of last academic" @change="emitInfos" class="inputs"></el-input>
     <el-date-picker v-model="personalInfos.projectDate" type="date" placeholder="Date" @change="emitInfos" class="inputs"></el-date-picker>
     <el-input v-model="personalInfos.projectFunding" placeholder="Possible project funding" @change="emitInfos" class="inputs"></el-input>
-    {{ formatDate }}
   </div>
 </template>
 
@@ -16,7 +15,7 @@ export default {
   name: 'q7mi',
   data () {
     return {
-      question: 'Fill in with personal informations',
+      question: '7. Fill in with personal information',
       personalInfos: {
         name: '',
         familyName: '',

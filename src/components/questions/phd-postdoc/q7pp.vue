@@ -22,7 +22,7 @@ export default {
   name: 'q7pp',
   data () {
     return {
-      question: 'Please state your level of competence in the following areas:',
+      question: '7. Please state your level of competence in the following areas:',
       colors: ['#F79999', '#F7BA2A', '#FF9900'],
       ratings: [
         { name: 'Design/Architecture', rate: 0 },

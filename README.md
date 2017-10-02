@@ -1,6 +1,6 @@
 # EPFL-LIPID-FORM
 
-> A postulation service for EPFL-LIPID
+> A application service for EPFL-LIPID
 
 ## Build Setup
 

@@ -1,7 +1,7 @@
 <template>
   <div id="q9pp">
     <h3>{{ question }}</h3>
-    <el-input type="textarea" autosize placeholder="Please type" v-model="answer" @change="isValid"></el-input>
+    <el-input type="textarea" :rows="3" placeholder="Please type" v-model="answer" @change="isValid"></el-input>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'q9pp',
   data () {
     return {
-      question: 'Why do you think LIPID would be a good fit for you?',
+      question: '9. Why do you think LIPID would be a good fit for you?',
       answer: ''
     }
   },

@@ -1,6 +1,6 @@
 <template>
   <div id="q1pp">
-    <h2>{{ question }}</h2>
+    <h3>{{ question }}</h3>
 
     <el-input v-model="personalInfos.name" placeholder="Name" @change="emitInfos" class="inputs"></el-input>
     <el-input v-model="personalInfos.familyName" placeholder="Family name" @change="emitInfos" class="inputs"></el-input>
@@ -17,7 +17,7 @@ export default {
   name: 'q1pp',
   data () {
     return {
-      question: 'Fill in with personal informations',
+      question: '1. Fill in with personal information',
       personalInfos: {
         name: '',
         familyName: '',

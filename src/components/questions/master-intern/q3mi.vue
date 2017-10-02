@@ -19,7 +19,7 @@ export default {
   name: 'q3mi',
   data () {
     return {
-      question: 'Is there a specific currently proposed project you would like to work at?',
+      question: '3. Is there a specific currently proposed project you would like to work at?',
       projects: projectList.projects,
       selectedProject: {
         name: '',

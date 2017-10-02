@@ -17,7 +17,7 @@ export default {
   name: 'q1mi',
   data () {
     return {
-      question: 'How did you get to know about the lab?',
+      question: '1. How did you get to know about the lab?',
       options: [
         { label: 'Conference paper' },
         { label: 'Journal paper' },

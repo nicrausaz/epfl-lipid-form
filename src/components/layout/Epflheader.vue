@@ -4,12 +4,9 @@
       <el-col :span="6" >
         <img src="static/epfl.png" class="images" draggable="false">
       </el-col>
-      <el-col :span="6" :offset="12">
-        <img src="static/LIPID.png" style="margin-top: 10px;" class="images" draggable="false">
-      </el-col>
     </el-row>
-    <h1 style="color: #ea5e00;">
-      <a href="http://lipid.epfl.ch/" id="lipidlink">EPFL-LIPID </a> POSTULATION FORM</h1>
+    <h1 id="title">
+      <a href="http://lipid.epfl.ch/" id="lipidlink">EPFL-LIPID </a> APPLICATION FORM</h1>
     <el-menu class="menu" mode="horizontal"></el-menu>
   </div>
 </template>
@@ -20,11 +17,15 @@
   color: black;
   height: 20px;
   margin-bottom: 30px;
-  font-family: Impact, "Arial Black", "DejaVu Sans", Arial, Helvetica, sans-serif;
+}
+
+#title {
+  color: #ea5e00;
+  font-size: 27px;
 }
 
 .images {
-  width: 250px;
+  width: 120px;
 }
 
 #lipidlink {

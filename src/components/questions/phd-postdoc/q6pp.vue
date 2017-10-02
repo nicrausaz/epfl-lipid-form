@@ -19,7 +19,7 @@ export default {
   name: 'q6pp',
   data () {
     return {
-      question: 'Identify ongoing projects in LIPID that you think you could connect to your research, directly or indirectly',
+      question: '6. Identify ongoing projects in LIPID that you think you could connect to your research, directly or indirectly',
       projects: projectList.projects,
       selectedProject: '',
       showList: false

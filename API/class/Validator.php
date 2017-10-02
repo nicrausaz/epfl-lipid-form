@@ -103,7 +103,7 @@
 			  }
       }
       else {
-        $this->errors['personalInfos'] = 'Question7: Missing personal informations';
+        $this->errors['personalInfos'] = 'Question7: Missing personal information';
       }
 		}
 
@@ -120,7 +120,7 @@
         }
       }
       else {
-        $this->errors['personalInfos'] = 'Question1: Missing personal informations';
+        $this->errors['personalInfos'] = 'Question1: Missing personal information';
       }
 
       if (is_null($this->postedData['data']['q3']['answer']) || $this->postedData['data']['q3']['answer'] === '') {

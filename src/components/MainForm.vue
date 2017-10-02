@@ -61,10 +61,9 @@ export default {
     },
     submit () {
       let formData = this.createObjFormData()
-      this.$http.post('https://lipid-webform.epfl.ch/API/index.php', formData)
+      this.$http.post('http://lipid-form.local', formData) // https://lipid-webform.epfl.ch/API/index.php
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')
-        console.log(this.errors)
         if (this.errors[0] === ' ') {
           this.finish()
         } else if (this.errors.length > 0) {
@@ -73,7 +72,11 @@ export default {
       })
     },
     finish () {
-      this.$alert('Thanks Message ... Redirecting', 'Postulation accepted !', {
+      let msg = 'Thank you for your interest in LIPID and for applying for a position with us. Based on your interests and the information you provided, we will get back to you shortly' +
+      'In the meanwhile, we invite you to subscribe to our news stream to stay connected. \n\r' +
+      'Best regards, \n\r Team LIPID.'
+
+      this.$alert(msg, 'Application sent', {
         confirmButtonText: 'Leave',
         callback: action => {
           window.location.replace('http://lipid.epfl.ch')

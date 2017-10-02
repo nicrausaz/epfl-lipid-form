@@ -13,7 +13,7 @@ export default {
   name: 'q2pp',
   data () {
     return {
-      question: 'Please upload your CV and any other relevant documents',
+      question: '2. Please upload your CV and any other relevant documents',
       description: '(such as letter of motivation, scientific articles, work samples).'
     }
   },

@@ -12,7 +12,7 @@ export default {
   name: 'q6mi',
   data () {
     return {
-      question: 'Do you have a specific project in mind?',
+      question: '6. Do you have a specific project in mind?',
       answerText: '',
       showText: false
     }

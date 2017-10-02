@@ -1,7 +1,7 @@
 <template>
   <div id="q3pp">
     <h3>{{ question }}</h3>
-    <el-input type="textarea" autosize placeholder="Please type" v-model="answer" v-on:change="isValid"></el-input>
+    <el-input type="textarea" :rows="3" placeholder="Please type" v-model="answer" v-on:change="isValid"></el-input>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'q3pp',
   data () {
     return {
-      question: 'How did you get to know about the lab?',
+      question: '3. How did you get to know about the lab?',
       answer: ''
     }
   },

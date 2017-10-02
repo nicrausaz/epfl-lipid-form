@@ -15,7 +15,7 @@ export default {
   name: 'q5mi',
   data () {
     return {
-      question: 'Which of the following topics would you like to explore in your project?',
+      question: '5. Which of the following topics would you like to explore in your project?',
       description: 'Select more than one if applicable and specify your level of interest.',
       colors: ['#F79999', '#F7BA2A', '#FF9900'],
       ratings: {
