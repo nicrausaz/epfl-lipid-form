@@ -3,7 +3,7 @@
 
   class DataManipulator {
     private $data = [];
-    private $dataPath = "\\\\enac1files.epfl.ch\\LIPID\\commun1\\01 Administration\\New_Applications\\";
+    private $dataPath = "D:/Data/"; // \\\\enac1files.epfl.ch\\LIPID\\commun1\\01 Administration\\New_Applications\\
     private $userDataPath = '';
     private $userFilesPath = '';
     private $userFullName = '';

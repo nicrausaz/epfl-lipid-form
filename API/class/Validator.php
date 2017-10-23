@@ -45,14 +45,7 @@
 			}
 			else {
 				foreach ($this->postedFiles as $file) {
-					$path_parts = pathinfo($file['name']);
-
-					if ($path_parts['extension'] !== 'pdf') {
-						$this->errors['files'] = 'Files must be PDF only';
-					}
-					else {
-						$file['name'] = $this->checkSpecialChars($file['name']);
-					}
+					$file['name'] = $this->checkSpecialChars($file['name']);
 				}
 			}
 		}

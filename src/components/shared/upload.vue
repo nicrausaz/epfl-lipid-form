@@ -1,10 +1,8 @@
 <template>
   <div id="upload">
-    <el-tooltip class="item" effect="dark" content="PDF Only" placement="top">
-      <label id="uploaderLabel">
-        <input type="file" id="uploader" multiple @change="getFiles"></input>
-      </label>
-    </el-tooltip>
+    <label id="uploaderLabel">
+      <input type="file" id="uploader" multiple @change="getFiles"></input>
+    </label>
   </div>
 </template>
 

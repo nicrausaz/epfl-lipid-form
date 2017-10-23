@@ -23,23 +23,6 @@ export default {
         university: '',
         projectDate: '',
         projectFunding: ''
-      },
-      personalInfos2: {
-        name: {
-          type: 'text',
-          model: '',
-          placeholder: 'dkfjhdskfjh'
-        },
-        date: {
-          type: 'select',
-          model: '',
-          placeholder: 'dkfjhdskfjh'
-        },
-        familyName: '',
-        email: '',
-        university: '',
-        projectDate: '',
-        projectFunding: ''
       }
     }
   },
