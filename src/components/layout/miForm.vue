@@ -45,24 +45,30 @@ export default {
       formDataMi: {
         personalInfos: [],
         q1: {
+          question: '',
           choices: [],
           textOther: ''
         },
         q2: {
+          question: '',
           interestInLab: ''
         },
         q3: {
+          question: '',
           interest: '',
           selectedProject: ''
         },
         q4: {
+          question: '',
           interest: '',
           selectedResearch: ''
         },
         q5: {
+          question: '',
           ratings: []
         },
         q6: {
+          question: '',
           interest: '',
           text: ''
         }
@@ -71,27 +77,33 @@ export default {
     }
   },
   methods: {
-    setQ1mi (answers, text) {
+    setQ1mi (question, answers, text) {
+      this.formDataMi.q1.question = question
       this.formDataMi.q1.choices = answers
       if (text) {
         this.formDataMi.q1.textOther = text
       }
     },
-    setQ2mi (answer) {
+    setQ2mi (question, answer) {
+      this.formDataMi.q2.question = question
       this.formDataMi.q2.interestInLab = answer
     },
-    setQ3mi (checked, selectedProject) {
+    setQ3mi (question, checked, selectedProject) {
+      this.formDataMi.q3.question = question
       this.formDataMi.q3.interest = checked
       checked ? this.formDataMi.q3.selectedProject = selectedProject : this.formDataMi.q3.selectedProject = ''
     },
-    setQ4mi (checked, selectedResearch) {
+    setQ4mi (question, checked, selectedResearch) {
+      this.formDataMi.q4.question = question
       this.formDataMi.q4.interest = checked
       checked ? this.formDataMi.q4.selectedResearch = selectedResearch : this.formDataMi.q4.selectedResearch = ''
     },
-    setQ5mi (ratings) {
+    setQ5mi (question, ratings) {
+      this.formDataMi.q5.question = question
       this.formDataMi.q5.ratings = ratings
     },
-    setQ6mi (interest, text) {
+    setQ6mi (question, interest, text) {
+      this.formDataMi.q6.question = question
       this.formDataMi.q6.interest = interest
       this.formDataMi.q6.text = text
     },

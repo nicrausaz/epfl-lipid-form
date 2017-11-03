@@ -34,9 +34,9 @@ export default {
   methods: {
     emitAnswers () {
       if (this.hasOther) {
-        this.$emit('q1mi', this.answers, this.otherFieldVal)
+        this.$emit('q1mi', this.question, this.answers, this.otherFieldVal)
       } else {
-        this.$emit('q1mi', this.answers)
+        this.$emit('q1mi', this.question, this.answers)
       }
     }
   }

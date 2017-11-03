@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     emitStars () {
-      this.$emit('q7pp', this.ratings, this.other)
+      this.$emit('q7pp', this.question, this.ratings, this.other)
     }
   }
 }

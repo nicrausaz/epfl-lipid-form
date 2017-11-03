@@ -22,7 +22,7 @@ export default {
       if (!this.showText) {
         this.answerText = ''
       }
-      this.$emit('q6mi', this.showText, this.answerText)
+      this.$emit('q6mi', this.question, this.showText, this.answerText)
     }
   }
 }

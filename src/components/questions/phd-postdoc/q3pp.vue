@@ -17,9 +17,9 @@ export default {
   methods: {
     isValid () {
       if (this.answer.split(' ').length <= 150) {
-        this.$emit('q3pp', this.answer)
+        this.$emit('q3pp', this.question, this.answer)
       } else {
-        alert('TOO MUCH WORDS')
+        // alert('TOO MUCH WORDS')
       }
     }
   }

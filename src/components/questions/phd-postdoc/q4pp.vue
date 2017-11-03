@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     emitStars () {
-      this.$emit('q4pp', this.ratings)
+      this.$emit('q4pp', this.question, this.ratings)
     },
     isOtherSelected () {
       this.text === '' ? this.ratings.other.selected = false : this.ratings.other.selected = true

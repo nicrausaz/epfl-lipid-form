@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     emitAnswers () {
-      this.$emit('q4mi', this.showList, this.selectedResearch)
+      this.$emit('q4mi', this.question, this.showList, this.selectedResearch)
     },
     setShowList () {
       this.showList = !this.showList

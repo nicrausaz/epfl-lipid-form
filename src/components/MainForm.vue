@@ -15,6 +15,7 @@
         </div>
       </el-dialog>
     </div>
+    <pre>{{formData}}</pre>
   </div>
 </template>
 
@@ -68,7 +69,6 @@ export default {
       this.$http.post('http://lipid-form.local', formData) // https://lipid-webform.epfl.ch/API/index.php
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')
-        console.log(this.errors)
         if (this.errors[0] === '') {
           this.finish()
         } else if (this.errors.length > 0) {

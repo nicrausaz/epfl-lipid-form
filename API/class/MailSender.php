@@ -7,7 +7,7 @@
 
     public function toStarsRatings ($to, $job, $path, $key, $value) {
       require('templates/mailStars.php');
-      mail($to, $subject, $message, $headers);
+      // mail($to, $subject, $message, $headers);
     }
 
     public function toProjectResp ($project, $path) {

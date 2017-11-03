@@ -177,7 +177,7 @@
 
     public function returnStatus () {
       if (count($this->errors) > 0) {
-        print_r(json_encode($this->errors)); 
+        print_r(json_encode($this->errors));
       }
       else {
 				$DataManipulator = new DataManipulator($this->postedData, $this->postedFiles);

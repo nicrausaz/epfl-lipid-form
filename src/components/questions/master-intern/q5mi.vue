@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     emitStars () {
-      this.$emit('q5mi', this.ratings)
+      this.$emit('q5mi', this.question, this.ratings)
     }
   }
 }

@@ -49,26 +49,33 @@ export default {
       formDataPp: {
         personalInfos: [],
         q3: {
+          question: '',
           answer: ''
         },
         q4: {
+          question: '',
           ratings: []
         },
         q5: {
+          question: '',
           answer: ''
         },
         q6: {
+          question: '',
           interest: '',
           selectedProject: ''
         },
         q7: {
+          question: '',
           ratings: [],
           other: []
         },
         q8: {
+          question: '',
           answer: ''
         },
         q9: {
+          question: '',
           answer: ''
         }
       },
@@ -82,27 +89,34 @@ export default {
     setFiles (files) {
       this.files = files
     },
-    setQ3pp (answer) {
+    setQ3pp (question, answer) {
+      this.formDataPp.q3.question = question
       this.formDataPp.q3.answer = answer
     },
-    setQ4pp (ratings) {
+    setQ4pp (question, ratings) {
+      this.formDataPp.q4.question = question
       this.formDataPp.q4.ratings = ratings
     },
-    setQ5pp (answer) {
+    setQ5pp (question, answer) {
+      this.formDataPp.q5.question = question
       this.formDataPp.q5.answer = answer
     },
-    setQ6pp (interest, project) {
+    setQ6pp (question, interest, project) {
+      this.formDataPp.q6.question = question
       this.formDataPp.q6.interest = interest
       interest ? this.formDataPp.q6.selectedProject = project : this.formDataPp.q6.selectedProject = ''
     },
-    setQ7pp (ratings, other) {
+    setQ7pp (question, ratings, other) {
+      this.formDataPp.q7.question = question
       this.formDataPp.q7.ratings = ratings
       this.formDataPp.q7.other = other
     },
-    setQ8pp (answer) {
+    setQ8pp (question, answer) {
+      this.formDataPp.q8.question = question
       this.formDataPp.q8.answer = answer
     },
-    setQ9pp (answer) {
+    setQ9pp (question, answer) {
+      this.formDataPp.q9.question = question
       this.formDataPp.q9.answer = answer
     },
     emitData () {

@@ -18,7 +18,7 @@ export default {
     isValid () {
       if (this.answer.split(' ').length <= 150) {
         // emit if valid
-        this.$emit('q2mi', this.answer)
+        this.$emit('q2mi', this.question, this.answer)
       } else {
         alert('TOO MUCH WORDS')
       }
