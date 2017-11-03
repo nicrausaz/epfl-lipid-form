@@ -6,12 +6,12 @@
       </el-col>
     </el-row>
     <h1 id="title">
-      <a href="http://lipid.epfl.ch/" id="lipidlink">EPFL-LIPID </a> APPLICATION FORM</h1>
+      <a href="http://lipid.epfl.ch/" id="lipidlink"> EPFL-LIPID </a> APPLICATION FORM </h1>
     <el-menu class="menu" mode="horizontal"></el-menu>
   </div>
 </template>
 
-<style>
+<style scoped>
 .menu {
   background-color: #ea5e00;
   color: black;
@@ -22,6 +22,8 @@
 #title {
   color: #ea5e00;
   font-size: 27px;
+  font-family: Impact, "Arial Black", "DejaVu Sans", Arial, Helvetica, sans-serif;
+  letter-spacing: 1.89px;
 }
 
 .images {

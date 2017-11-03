@@ -10,7 +10,7 @@
 				$this->postedData = $data;
 				$this->postedFiles = $files;
 				$this->mainCheck();
-        $this->returnStatus();
+				$this->returnStatus();
 		}
 
 		private function mainCheck ()  {

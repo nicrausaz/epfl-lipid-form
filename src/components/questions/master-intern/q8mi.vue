@@ -3,11 +3,13 @@
     <h3>{{ question }}</h3>
     <h4>{{ description }}</h4>
     <upload @changeFile="emitFiles"></upload>
+    <!-- <testUpload @changeFile="emitFiles"></testUpload> -->
   </div>
 </template>
 
 <script>
 import Upload from '@/components/shared/upload'
+import testUpload from '@/components/shared/testUpload'
 
 export default {
   name: 'q8mi',
@@ -23,7 +25,8 @@ export default {
     }
   },
   components: {
-    Upload
+    Upload,
+    testUpload
   }
 }
 </script>

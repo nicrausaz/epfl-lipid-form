@@ -50,7 +50,10 @@ export default {
       let stringFormData = JSON.stringify(this.formData)
       let i = 0
 
+      // add infos to formData
       formData.append('formData', stringFormData)
+
+      // add files to formData
       if (this.formData.files.length !== 0) {
         for (let value of this.formData.files.values()) {
           formData.append('file' + i, value)
@@ -61,10 +64,12 @@ export default {
     },
     submit () {
       let formData = this.createObjFormData()
+
       this.$http.post('http://lipid-form.local', formData) // https://lipid-webform.epfl.ch/API/index.php
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')
-        if (this.errors[0] === ' ') {
+        console.log(this.errors)
+        if (this.errors[0] === '') {
           this.finish()
         } else if (this.errors.length > 0) {
           this.dialogVisible = true
