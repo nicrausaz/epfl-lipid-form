@@ -8,19 +8,16 @@
 export default {
   data () {
     return {
-      fileList: new FormData(),
-      index: 0
+      fileList: new FormData()
     }
   },
   methods: {
     addFile (file) {
-      this.fileList.append(this.index, file.raw)
+      this.fileList.append(file.raw.uid, file.raw)
       this.$emit('changeFile', this.fileList)
-      this.index ++
     },
     removeFile (file) {
-      console.log(file) // TODO: make this work
-      this.fileList.delete(file)
+      this.fileList.delete(file.uid)
     },
     popupNewFile () {
       this.$message({

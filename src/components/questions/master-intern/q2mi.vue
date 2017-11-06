@@ -1,7 +1,7 @@
 <template>
   <div id="q2mi">
     <h3>{{ question }}</h3>
-    <el-input type="textarea" :rows="3" placeholder="Please type" v-model="answer" @change="isValid" ></el-input>
+    <el-input type="textarea" :rows="3" placeholder="Please type" v-model="answer" @change="isValid"></el-input>
   </div>
 </template>
 
@@ -17,10 +17,7 @@ export default {
   methods: {
     isValid () {
       if (this.answer.split(' ').length <= 150) {
-        // emit if valid
         this.$emit('q2mi', this.question, this.answer)
-      } else {
-        alert('TOO MUCH WORDS')
       }
     }
   }
