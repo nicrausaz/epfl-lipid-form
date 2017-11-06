@@ -4,7 +4,7 @@
     $userPath = $path;
 
     $subject = 'New interest in your project';
-    $message = "Hi," ."\n\n". 
+    $message = "Hi," ."\n\n".
     "Someone just mention interest in your project/research '$projectName'" . "\n\n";
 
     $message .= "Find data here: " . $userPath;
