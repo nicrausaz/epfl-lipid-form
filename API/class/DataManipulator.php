@@ -25,6 +25,7 @@
       if (!is_dir($this->userDataPath)) {
         if (mkdir($this->userDataPath, 0777, true)) {
           $this->writeDataFile();
+          $this->writePDFFile();
         }
         if (mkdir($this->userFilesPath, 0777, true)) {
           $this->uploadFiles();
@@ -47,6 +48,15 @@
       else {
         // error
       }
+    }
+
+    private function writePDFFile () {
+      // require('../fpdf/fpdf.php');
+      // $pdf = new FPDF();
+      // $pdf->AddPage();
+      // $pdf->SetFont('Arial','B',16);
+      // $pdf->Cell(40,10,'Hello World !');
+      // $pdf->Output('F', $this->userDataPath . 'infos.pdf');
     }
 
     private function uploadFiles () {

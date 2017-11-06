@@ -33,6 +33,7 @@
 #lipidlink {
   text-decoration: none;
   color: black;
+  font-weight: lighter;
 }
 
 #lipidlink:hover {

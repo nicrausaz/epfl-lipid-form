@@ -2,8 +2,8 @@
   <div id="q8mi">
     <h3>{{ question }}</h3>
     <h4>{{ description }}</h4>
-    <upload @changeFile="emitFiles"></upload>
-    <!-- <testUpload @changeFile="emitFiles"></testUpload> -->
+    <!-- <upload @changeFile="emitFiles"></upload> -->
+    <testUpload @changeFile="emitFiles"></testUpload>
   </div>
 </template>
 
