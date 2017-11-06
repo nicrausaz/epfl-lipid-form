@@ -19,8 +19,6 @@ export default {
       if (this.answer.split(' ').length <= 150) {
         // emit if valid
         this.$emit('q9pp', this.question, this.answer)
-      } else {
-        // alert('TOO MUCH WORDS')
       }
     }
   }
