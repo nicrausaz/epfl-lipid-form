@@ -69,7 +69,7 @@ export default {
       .then(response => {
         this.errors = Object.values(response.data).toString().split(',')
         if (this.errors[0] === '') {
-          // this.finish()
+          this.finish()
         } else if (this.errors.length > 0) {
           this.dialogVisible = true
         }

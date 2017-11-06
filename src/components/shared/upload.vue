@@ -19,11 +19,19 @@ export default {
     },
     removeFile (file) {
       this.fileList.delete(file.uid)
+      this.popupRmFile(file.raw.name)
+      this.$emit('changeFile', this.fileList)
     },
     popupNewFile (name) {
       this.$message({
         message: name + ' added',
         type: 'success'
+      })
+    },
+    popupRmFile (name) {
+      this.$message({
+        message: name + ' removed',
+        type: 'error'
       })
     }
   }
