@@ -1,29 +1,23 @@
 <template>
-  <div id="upload">
-    <label id="uploaderLabel">
-      <input type="file" id="uploader" multiple @change="getFiles"></input>
-    </label>
-  </div>
+  <el-upload class="upload" ref="upload" id="uploader" :multiple="true" action="" :auto-upload="false" :on-change="addFile" :on-remove="removeFile">
+    <el-button slot="trigger" size="large" type="primary">Choose file</el-button>
+  </el-upload>
 </template>
 
 <script>
 export default {
-  name: 'upload',
   data () {
     return {
-      fileList: []
+      fileList: new FormData()
     }
   },
   methods: {
-    getFiles () {
-      let formData = new FormData()
-      let files = document.getElementById('uploader').files
-      for (let i = 0; i < files.length; i++) {
-        formData.append('file' + i, files[i])
-      }
-      this.fileList = formData
-      this.popupNewFile()
+    addFile (file) {
+      this.fileList.append(file.raw.uid, file.raw)
       this.$emit('changeFile', this.fileList)
+    },
+    removeFile (file) {
+      this.fileList.delete(file.uid)
     },
     popupNewFile () {
       this.$message({
@@ -35,26 +29,9 @@ export default {
 }
 </script>
 
-<style>
-#uploader {
-  visibility: hidden;
-  width: 100px
-}
-
-#uploaderLabel {
-  display: inline-block;
-  position: relative;
-}
-
-#uploaderLabel:before {
-  content: 'Choose Files';
-  display: block;
-  background: #ea5e00;
-  padding: 15px 20px;
-  cursor: pointer;
-  color: white;
-  border-radius: 4px;
-  text-align: center;
-  font-size: 14pt;
+<style scoped>
+.upload {
+  width: 50%;
 }
 </style>
+
