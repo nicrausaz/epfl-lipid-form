@@ -1,7 +1,6 @@
 <template>
   <div id="q1mi" v-on:change="emitAnswers">
     <h3>{{ question }}</h3>
-
     <el-checkbox-group v-model="answers" id="checkboxGroup">
       <el-checkbox v-for="option in options" :label="option.label" :key="option"></el-checkbox>
       <el-checkbox label="Other" v-on:change="hasOther = !hasOther"></el-checkbox>

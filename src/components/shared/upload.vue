@@ -14,14 +14,15 @@ export default {
   methods: {
     addFile (file) {
       this.fileList.append(file.raw.uid, file.raw)
+      this.popupNewFile(file.raw.name)
       this.$emit('changeFile', this.fileList)
     },
     removeFile (file) {
       this.fileList.delete(file.uid)
     },
-    popupNewFile () {
+    popupNewFile (name) {
       this.$message({
-        message: 'File(s) added',
+        message: name + ' added',
         type: 'success'
       })
     }

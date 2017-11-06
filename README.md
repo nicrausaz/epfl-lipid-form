@@ -20,4 +20,5 @@ npm run build --report
 
 ## Go Prod !
 
-Change url in MainForm.vue
+- Change url in MainForm.vue
+- Edit paths in API

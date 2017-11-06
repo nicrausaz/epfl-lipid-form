@@ -22,5 +22,9 @@
     font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-weight: initial;
+  }
+  h3 {
+    font-size: 13px;
   }
 </style>
