@@ -5,7 +5,7 @@
     <el-input v-model="personalInfos.familyName" placeholder="Family name" @change="emitInfos" class="inputs"></el-input>
     <el-input v-model="personalInfos.email" placeholder="Email" type="email" @change="emitInfos" class="inputs"></el-input>
     <el-input v-model="personalInfos.university" placeholder="University of last academic" @change="emitInfos" class="inputs"></el-input>
-    <el-date-picker v-model="personalInfos.projectDate" type="date" placeholder="Date" @change="emitInfos" class="inputs"></el-date-picker>
+    <el-date-picker v-model="personalInfos.projectDate" type="date" placeholder="Date" @change="emitInfos" class="inputs" format="dd/MM/yyyy"></el-date-picker>
     <el-input v-model="personalInfos.projectFunding" placeholder="Possible project funding" @change="emitInfos" class="inputs"></el-input>
   </div>
 </template>
@@ -38,5 +38,6 @@ export default {
 .inputs {
   padding-bottom: 10px;
   width: 50%;
+  font-size: 13px;
 }
 </style>

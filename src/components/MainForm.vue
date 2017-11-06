@@ -6,7 +6,7 @@
 
       <miForm v-if="isMaster || isInternship" @miForm="setData"></miForm>
       <ppForm v-if="isPhd || isPostDoc" @ppForm="setData"></ppForm>
-      <h1 v-if="notSelected" id="unselectedDiv">Please select</h1>
+      <h2 v-if="notSelected" id="unselectedDiv">Please select</h2>
 
       <el-button id="submitBtn" type="primary" size="large" v-if="!notSelected" @click="submit">Submit</el-button>
       <el-dialog title="Some errors happened" :visible.sync="dialogVisible">

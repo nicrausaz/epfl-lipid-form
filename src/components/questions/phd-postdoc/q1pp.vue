@@ -41,5 +41,6 @@ export default {
 .inputs {
   padding-bottom: 10px;
   width: 50%;
+  font-size: 13px;
 }
 </style>
