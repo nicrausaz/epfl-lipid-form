@@ -14,6 +14,7 @@
     function __construct ($data, $files) {
       $this->data = $data;
       $this->files = $files;
+      $this->dataPath .= $this->data['selectedJob'] . '/';
       $this->userFullName = $this->data['data']['personalInfos']['name'] . $this->data['data']['personalInfos']['familyName'];
       $this->userDataPath = $this->dataPath . date("Y-n-j-") . $this->userFullName .'/';
       $this->userFilesPath = $this->userDataPath . 'files/';
