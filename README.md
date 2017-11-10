@@ -22,3 +22,4 @@ npm run build --report
 
 - Change url in MainForm.vue
 - Edit paths in API
+- Put dist/ folder content + API folder in web root
